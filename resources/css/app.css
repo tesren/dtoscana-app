@@ -1,0 +1,157 @@
+@import 'bootstrap/dist/css/bootstrap.css';
+@import url('all.min.css');
+@import "@fancyapps/ui/dist/fancybox/fancybox.css";
+
+:root{
+    --red : #541920;
+}
+
+body{
+    font-family: "League Spartan", sans-serif;
+    font-optical-sizing: auto;
+    overflow-x: hidden !important;
+    color: var(--red);
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: "Libre Baskerville", serif;
+}
+
+.row{
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.ff-spartan{
+    font-family: "League Spartan", sans-serif !important;
+}
+
+.ff-libre{
+    font-family: "Libre Baskerville", serif;
+}
+
+.fs-0{
+    font-size: 180px;
+}
+
+.mt-6{
+    margin-top: 6rem !important;
+}
+
+.mb-6{
+    margin-bottom: 6rem !important;
+}
+
+.my-6{
+    margin-top: 6ch !important;
+    margin-bottom: 6rem !important;
+}
+
+.bg-glass{
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.8px);
+    -webkit-backdrop-filter: blur(5.8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.text-red{
+    color: var(--red);
+}
+
+.bg-red{
+    background-color: var(--red);
+    color: white;
+}
+
+.bg-outline-red{
+    background-color: white;
+    border: 1px solid var(--red);
+}
+
+.fill-red{
+    fill: var(--red);
+}
+
+.navbar .nav-link {
+    font-weight: normal;
+    color: var(--red);
+    font-family: "Libre Baskerville", serif;
+}
+
+.navbar-nav .nav-link.active{
+    border-bottom: 2px solid var(--red);
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    background-color: var(--red);
+}
+
+.text-shadow{
+    text-shadow: 1px 1px 2px #000;
+}
+
+.btn-red{
+    background-color: var(--red);
+    color: white;
+}
+
+.btn-red:hover{
+    background-color: #400f15;
+    color: white;
+    transition: 0.3s;
+}
+
+.btn-outline-red{
+    background-color: transparent;
+    color: var(--red);
+    border: 1px solid var(--red);
+}
+
+.btn-outline-red:hover{
+    background-color: var(--red);
+    color: white;
+    transition: 0.3s;
+}
+
+.btn-glass{
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.8px);
+    -webkit-backdrop-filter: blur(5.8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-weight: 300;
+}
+
+.btn-glass:hover{
+    background: rgba(255, 255, 255, 1);
+    transition: 0.3s;
+    color: black;
+}
+
+.btn-light{
+    color: var(--red) !important;
+}
+
+@media (max-width: 992px) {
+
+    .mt-6{
+        margin-top: 3.5rem !important;
+    }
+    
+    .mb-6{
+        margin-bottom: 3.5rem !important;
+    }
+    
+    .my-6{
+        margin-top: 3.5rem !important;
+        margin-bottom: 3.5rem !important;
+    }
+
+    .fs-0{
+        font-size: 70px;
+    }
+
+}
