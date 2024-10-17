@@ -4,9 +4,9 @@
     <div class="row justify-content-between mb-6">
 
 
-        <div class="col-12 col-lg-5 position-relative order-2 order-lg-1">
+        <div class="col-12 col-lg-6 col-xxl-5 position-relative order-2 order-lg-1">
 
-            <div class="p-4 p-lg-5 bg-red rounded-5">
+            <div class="p-4 p-lg-5 bg-red rounded-5 shadow">
 
                 <img width="180px" class="d-block mx-auto mb-4" src="{{asset('img/dtoscana-logo-white.svg')}}" alt="Logo D'Toscana">
 

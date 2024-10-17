@@ -31,7 +31,7 @@
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-0 pe-lg-3">
 
                         <li class="nav-item me-0 me-lg-4">
-                            <a class="nav-link fs-5 @if( strpos($route, 'search') != false) active @endif" href="{{--route('search')--}}" wire:navigate>{{__('Inventario')}}</a>
+                            <a class="nav-link fs-5 @if( strpos($route, 'search') != false) active @endif" href="{{route('search')}}" wire:navigate>{{__('Inventario')}}</a>
                         </li>
 
                         <li class="nav-item me-0 me-lg-4">
@@ -45,7 +45,7 @@
                         @endif
 
                         <li class="nav-item me-0 me-lg-4">
-                            <a class="nav-link fs-5 @if( strpos($route, 'contact') != false) active @endif" href="{{-- route('contact') --}}" wire:navigate>{{__('Contacto')}}</a>
+                            <a class="nav-link fs-5 @if( strpos($route, 'contact') != false) active @endif" href="{{ route('contact') }}" wire:navigate>{{__('Contacto')}}</a>
                         </li>
 
                         @guest
@@ -76,21 +76,21 @@
                         <li class="nav-item me-0 me-lg-4">
         
                             @if ($lang == 'en')
-                                @if($route != 'en.pages.unit' and $route != 'es.livewire.update')
+                                @if($route != 'en.unit' and $route != 'es.livewire.update')
         
                                     <a href="{{$url = route($route, request()->query(), true, 'es')}}" wire:navigate class="d-block align-self-center me-0 me-lg-3 text-blue fs-4 text-decoration-none fw-light" title="{{__('Cambiar idioma')}}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
                                         <img width="25px" src="{{asset('/img/translate.svg')}}" alt="{{__('Cambiar idioma')}}"> <span class="d-inline d-lg-none">{{__('Cambiar idioma')}}</span>
                                     </a>
                                 @else
         
-                                    <a class="d-block align-self-center me-0 me-lg-3 text-blue fs-4 text-decoration-none fw-light" title="{{__('Cambiar idioma')}}" wire:navigate href="{{$url = route('pages.unit', ['name'=>$unit_name, 'utm_campaign' => request()->query('utm_campaign'), 'utm_source' => request()->query('utm_source'), 'utm_medium' => request()->query('utm_medium')], true, 'es');}}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
+                                    <a class="d-block align-self-center me-0 me-lg-3 text-blue fs-4 text-decoration-none fw-light" title="{{__('Cambiar idioma')}}" wire:navigate href="{{$url = route('unit', ['name'=>$unit_name, 'utm_campaign' => request()->query('utm_campaign'), 'utm_source' => request()->query('utm_source'), 'utm_medium' => request()->query('utm_medium')], true, 'es');}}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
                                         <img width="25px" src="{{asset('/img/translate.svg')}}" alt="{{__('Cambiar idioma')}}"> <span class="d-inline d-lg-none">{{__('Cambiar idioma')}}</span>
                                     </a>
         
                                 @endif
         
                             @else
-                                @if($route != 'es.pages.unit' and $route != 'es.livewire.update')
+                                @if($route != 'es.unit' and $route != 'es.livewire.update')
         
                                     <a href="{{$url = route($route, request()->query(), true, 'en')}}" wire:navigate class="d-block align-self-center me-0 me-lg-3 text-blue fs-4 text-decoration-none fw-light" title="{{__('Cambiar idioma')}}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
                                         <img width="25px" src="{{asset('/img/translate.svg')}}" alt="{{__('Cambiar idioma')}}"> <span class="d-inline d-lg-none">{{__('Cambiar idioma')}}</span>
@@ -98,7 +98,7 @@
         
                                 @else
                                     
-                                    <a class="d-block align-self-center me-0 me-lg-3 text-blue fs-4 text-decoration-none fw-light" title="{{__('Cambiar idioma')}}" wire:navigate href="{{$url = route('pages.unit', ['name'=>$unit_name, 'utm_campaign' => request()->query('utm_campaign'), 'utm_source' => request()->query('utm_source'), 'utm_medium' => request()->query('utm_medium')], true, 'en');}}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
+                                    <a class="d-block align-self-center me-0 me-lg-3 text-blue fs-4 text-decoration-none fw-light" title="{{__('Cambiar idioma')}}" wire:navigate href="{{$url = route('unit', ['name'=>$unit_name, 'utm_campaign' => request()->query('utm_campaign'), 'utm_source' => request()->query('utm_source'), 'utm_medium' => request()->query('utm_medium')], true, 'en');}}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
                                         <img width="25px" src="{{asset('/img/translate.svg')}}" alt="{{__('Cambiar idioma')}}"> <span class="d-inline d-lg-none">{{__('Cambiar idioma')}}</span>
                                     </a>
         
