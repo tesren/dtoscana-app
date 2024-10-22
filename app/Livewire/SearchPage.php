@@ -30,6 +30,7 @@ class SearchPage extends Component
         $unit->users()->attach( auth()->user()->id );
         $unit->save();
 
+        session()->flash('saved', __('Se guardó la unidad ').$unit->name );
     }
 
     public function removeUnit($unitID){
@@ -38,6 +39,7 @@ class SearchPage extends Component
         $unit->users()->detach( auth()->user()->id );
         $unit->save();
 
+        session()->flash('removed', __('Se quitó la unidad ').$unit->name);
     }
 
     public function render()

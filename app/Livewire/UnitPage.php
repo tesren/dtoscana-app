@@ -14,7 +14,7 @@ class UnitPage extends Component
     {
         $this->reset();
         $this->unit = Unit::where('name', $name)->firstOrFail();
-        $this->dispatch('nombre-unidad', name:$name);
+        $this->dispatch('id-unidad', id:$this->unit->id);
     }
 
     public function saveUnit($unitID){
@@ -23,6 +23,7 @@ class UnitPage extends Component
         $unit->users()->attach( auth()->user()->id );
         $unit->save();
 
+        session()->flash('saved', __('Se guardó la unidad ').$unit->name );
     }
 
     public function removeUnit($unitID){
@@ -31,6 +32,7 @@ class UnitPage extends Component
         $unit->users()->detach( auth()->user()->id );
         $unit->save();
 
+        session()->flash('removed', __('Se quitó la unidad ').$unit->name);
     }
 
     public function render()

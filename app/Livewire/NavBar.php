@@ -2,21 +2,32 @@
 
 namespace App\Livewire;
 
+use App\Models\Unit;
 use Livewire\Component;
 use Livewire\Attributes\On;
 use App\Models\ConstructionUpdate;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
 
 class NavBar extends Component
 {
     public $unit_name = '4101';
+    public $unit_tower = 'Siena';
+    public $route = '';
 
-    #[On('nombre-unidad')] 
-    public function updateUnit($name)
+    #[On('id-unidad')] 
+    public function updateUnit($id)
     {
-        $this->unit_name = $name;
+        $unit = Unit::findOrFail($id);
+        $this->unit_name = $unit->name;
+        $this->unit_tower = $unit->section->tower->name;
+    }
+
+    public function mount()
+    {
+        $this->route = Route::currentRouteName();
     }
 
     public function logout(){

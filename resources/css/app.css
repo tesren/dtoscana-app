@@ -93,6 +93,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .navbar-nav .nav-link.active{
+    color: var(--red);
     border-bottom: 2px solid var(--red);
 }
 
@@ -151,6 +152,23 @@ h1, h2, h3, h4, h5, h6{
     color: var(--red);
 }
 
+[data-fancybox]:hover{
+    cursor: pointer;
+}
+
+.offcanvas-body, .offcanvas-header{
+    background-color: transparent;
+    color: var(--red);
+}
+
+.lang-icon{
+    fill: var(--red);
+}
+
+.offcanvas-footer{
+    background-color: var(--red);
+}
+
 @media (max-width: 992px) {
 
     .title-inventory{
@@ -172,6 +190,26 @@ h1, h2, h3, h4, h5, h6{
 
     .fs-0{
         font-size: 70px;
+    }
+
+    .offcanvas-body, .offcanvas-header{
+        background-color: var(--red);
+        color: white !important;
+    }
+
+    .navbar .nav-link {
+        color: white;
+        font-family: "League Spartan", sans-serif;
+        font-weight: light;
+    }
+    
+    .navbar-nav .nav-link.active{
+        color: white;
+        border-bottom: 2px solid white;
+    }
+
+    .lang-icon{
+        fill: white;
     }
 
 }

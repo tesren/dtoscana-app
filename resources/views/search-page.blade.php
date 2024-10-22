@@ -200,9 +200,7 @@
                                     </td>
         
                                     <td class="text-center">
-                                        @if ($unit->status == 'Disponible')
-                                            {{ $unit->const_total }}
-                                        @endif
+                                        {{ $unit->const_total }}
                                     </td>
 
                                     <td class="text-center">
@@ -215,7 +213,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ route('unit', ['name'=>$unit->name]) }}" class="btn btn-red" target="_blank" rel="noopener noreferrer">
+                                        <a href="{{ route('unit', ['name'=>$unit->name, 'tower'=>$unit->section->tower->name  ]) }}" class="btn btn-red" target="_blank" rel="noopener noreferrer">
                                             {{__('Ver más')}}
                                         </a>
                                     </td>
@@ -242,7 +240,23 @@
 
     </div>
 
-    <livewire:contact-form />
+    <div class="container">
+        <livewire:contact-form />
+    </div>
+
+    <div class="position-fixed bottom-0 start-0 ms-1 ms-lg-3 z-3">
+        @if (session('saved'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{__(session('saved'))}} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
+        @if (session('removed'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{__(session('removed'))}} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+    </div>
 
     @script
         <script>

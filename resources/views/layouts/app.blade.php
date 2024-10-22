@@ -35,7 +35,8 @@
             </div>
         </main>
 
-
+        <livewire:register-form>
+  
         <livewire:whatsapp-btn />
 
 

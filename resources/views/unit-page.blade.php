@@ -46,7 +46,7 @@
             @endfor
 
             <div class="col-12 col-lg-7 position-relative">
-                <img src="{{ $images[0]->getUrl('large') }}" alt="{{__('Condominio')}} {{$unit->name}} - D'Toscana Nuevo Vallarta" class="w-100 object-fit-cover h-100" data-fancybox="gallery">
+                <img src="{{ $images[0]->getUrl('large') }}" alt="{{__('Condominio')}} {{$unit->name}} - D'Toscana Nuevo Vallarta" class="w-100 object-fit-cover rounded-4 h-100" data-fancybox="gallery" style="max-height: 85vh;">
 
                 <a href="#gallery" class="badge bg-glass rounded-pill fw-light fs-4 position-absolute start-0 bottom-0 ms-1 ms-lg-5 mb-3 mb-lg-5 text-blue text-decoration-none" style="width: fit-content;">
                     <i class="fa-regular fa-images"></i> 1/{{count($images)}}
@@ -54,14 +54,14 @@
             </div>
 
             <div class="col-12 col-lg-4">
-                <img src="{{ $images[1]->getUrl('large') }}" alt="{{__('Condominio')}} {{$unit->name}} - D'Toscana Nuevo Vallarta" class="w-100 object-fit-cover" style="height: 76vh;" data-fancybox="gallery">
+                <img src="{{ $images[1]->getUrl('large') }}" alt="{{__('Condominio')}} {{$unit->name}} - D'Toscana Nuevo Vallarta" class="w-100 object-fit-cover rounded-4 mb-3" style="height: 76vh;" data-fancybox="gallery">
                 <a href="#lead_form" class="btn btn-red fs-5 py-3 px-3 px-lg-4 rounded-4 w-100">{{__('¿Necesitas más información?')}}</a>
             </div>
         
         @else
 
             <div class="col-12 col-lg-7 position-relative">
-                <img src="{{ asset('img/interiors/dtoscana-1.webp') }}" alt="{{__('Condominio')}} {{$unit->name}} - D'Toscana Nuevo Vallarta" class="w-100 object-fit-cover rounded-4 h-100" data-fancybox="gallery">
+                <img src="{{ asset('img/interiors/dtoscana-1.webp') }}" alt="{{__('Condominio')}} {{$unit->name}} - D'Toscana Nuevo Vallarta" class="w-100 object-fit-cover rounded-4 h-100" data-fancybox="gallery" style="max-height: 85vh;">
 
                 <a href="#gallery" class="badge bg-glass rounded-pill fw-light fs-4 position-absolute start-0 bottom-0 ms-1 ms-lg-5 mb-3 mb-lg-5 text-blue text-decoration-none" style="width: fit-content;">
                     <i class="fa-regular fa-images"></i> 1/14
@@ -147,21 +147,23 @@
                     <i class="fa-solid fa-ruler-combined"></i> Interior: {{$unit->interior_const}} {{__('m²')}}
                 </div>
 
-                <div class="col-12 col-lg-3 mb-3">
-                    <i class="fa-solid fa-maximize"></i> Exterior: {{$unit->exterior_const}} {{__('m²')}}
-                </div>
+                @if( isset($unit->exterior_const) and $unit->exterior_const != 0)
+                    <div class="col-12 col-lg-3 mb-3">
+                        <i class="fa-solid fa-maximize"></i> Exterior: {{$unit->exterior_const}} {{__('m²')}}
+                    </div>
+                @endif
 
-                @isset($unit->garden)
+                @if( isset($unit->garden) and $unit->garden != 0)
                     <div class="col-12 col-lg-3 mb-1">
                         <i class="fa-solid fa-seedling"></i> {{__('Jardín')}}: {{$unit->garden}} {{__('m²')}}
                     </div>
-                @endisset
+                @endif
 
-                @isset($unit->parking_area)
+                @if( isset($unit->parking_area) and $unit->parking_area != 0 )
                     <div class="col-12 col-lg-4 mb-1">
                         <i class="fa-solid fa-car"></i> {{__('Estacionamiento')}}: {{$unit->parking_area}} {{__('m²')}}
                     </div>
-                @endisset
+                @endif
 
 
                 <div class="col-12 col-lg-3">
@@ -215,6 +217,20 @@
 
     {{-- formulario de contacto --}}
     <livewire:contact-form />
+
+    <div class="position-fixed bottom-0 start-0 ms-1 ms-lg-3 z-3">
+        @if (session('saved'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{__(session('saved'))}} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
+        @if (session('removed'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{__(session('removed'))}} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+    </div>
 
     @script
         <script>

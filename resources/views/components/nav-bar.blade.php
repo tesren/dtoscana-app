@@ -16,15 +16,14 @@
 
                 <div class="offcanvas-header">
                     <div class="offcanvas-title" id="offcanvasNavbarLabel">
-                        <img width="110px" src="{{asset('img/dtoscana-logo-red.svg')}}" alt="Logo D'Toscana">
+                        <img width="150px" src="{{asset('/img/dtoscana-logo-white.svg')}}" alt="Logo D'Toscana">
                     </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
 
 
                 <div class="offcanvas-body">
                     @php
-                        $route = Route::currentRouteName();
                         $lang = app()->getLocale();
                     @endphp
 
@@ -49,57 +48,67 @@
                         </li>
 
                         @guest
-                            <li class="nav-item me-0 me-lg-4 align-self-start align-self-lg-center mb-3 mb-lg-0">
-                                <a class="btn btn-outline-red" href="{{-- route('login') --}}" wire:navigate>{{__('Inicia Sesión')}}</a>
+                            <li class="nav-item me-0 me-lg-4 align-self-start align-self-lg-center">
+                                <a class="btn btn-outline-red d-none d-lg-block" href="{{ route('login') }}" wire:navigate>{{__('Inicia Sesión')}}</a>
+                                <a class="nav-link d-block d-lg-none fs-5" href="{{ route('login') }}" wire:navigate><i class="fa-solid fa-right-to-bracket"></i> {{__('Inicia Sesión')}}</a>
                             </li>
 
-                            <li class="nav-item me-0 me-lg-4 align-self-start align-self-lg-center mb-3 mb-lg-0">
-                                <a class="btn btn-red" href="{{-- route('register') --}}" wire:navigate>{{__('Regístrate')}}</a>
+                            <li class="nav-item me-0 me-lg-4 align-self-start align-self-lg-center">
+                                <button class="btn btn-red d-none d-lg-block" type="button" data-bs-toggle="modal" data-bs-target="#registerModal">{{__('Regístrate')}}</button>
+                                <button class="nav-link d-block d-lg-none fs-5" type="button" data-bs-toggle="modal" data-bs-target="#registerModal"><i class="fa-solid fa-user-check"></i> {{__('Regístrate')}}</button>
                             </li>
                         @endguest
 
                         @auth
-                            <li class="nav-item dropdown me-0 me-lg-4">
+                            <li class="nav-item dropdown me-0 me-lg-4 d-none d-lg-block">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa-regular text-blue fs-4 fa-circle-user"></i>
+                                    <i class="fa-regular text-red fs-4 fa-circle-user"></i>
                                 </a>
 
                                 <ul class="dropdown-menu dropdown-menu-end">
-                                    <li><a class="dropdown-item" wire:navigate href="{{-- route('profile') --}}">{{__('Mi Perfil')}}</a></li>
-                                    <li><a class="dropdown-item" href="{{--route('saved')--}}" wire:navigate>{{__('Unidades Guardadas')}}</a></li>
+                                    <li><a class="dropdown-item" wire:navigate href="{{route('profile')}}">{{__('Mi Perfil')}}</a></li>
+                                    <li><a class="dropdown-item" href="{{route('saved')}}" wire:navigate>{{__('Unidades Guardadas')}}</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><button class="dropdown-item" wire:click="logout" >{{__('Cerrar sesión')}}</button></li>
                                 </ul>
+                            </li>
+
+                            <li class="nav-item d-block d-lg-none">
+                                <a class="nav-link fs-5 @if( strpos($route, 'profile') != false) active @endif" href="{{ route('profile') }}" wire:navigate><i class="fa-regular fa-circle-user"></i> {{__('Mi Perfil')}}</a>
+                            </li>
+
+                            <li class="nav-item d-block d-lg-none">
+                                <a class="nav-link fs-5 @if( strpos($route, 'saved') != false) active @endif" href="{{ route('saved') }}" wire:navigate><i class="fa-solid fa-heart"></i> {{__('Unidades Guardadas')}}</a>
                             </li>
                         @endauth
 
                         <li class="nav-item me-0 me-lg-4">
         
                             @if ($lang == 'en')
-                                @if($route != 'en.unit' and $route != 'es.livewire.update')
+                                @if($route != 'en.unit')
         
-                                    <a href="{{$url = route($route, request()->query(), true, 'es')}}" wire:navigate class="d-block align-self-center me-0 me-lg-3 text-blue fs-4 text-decoration-none fw-light" title="{{__('Cambiar idioma')}}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
-                                        <img width="25px" src="{{asset('/img/translate.svg')}}" alt="{{__('Cambiar idioma')}}"> <span class="d-inline d-lg-none">{{__('Cambiar idioma')}}</span>
+                                    <a href="{{$url = route($route, request()->query(), true, 'es')}}" wire:navigate class="d-block align-self-center me-0 me-lg-3 text-red nav-link text-decoration-none fs-5" title="{{__('Cambiar idioma')}}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
+                                        @include('components.lang-btn-icon') <span class="d-inline d-lg-none">{{__('Cambiar idioma')}}</span>
                                     </a>
                                 @else
         
-                                    <a class="d-block align-self-center me-0 me-lg-3 text-blue fs-4 text-decoration-none fw-light" title="{{__('Cambiar idioma')}}" wire:navigate href="{{$url = route('unit', ['name'=>$unit_name, 'utm_campaign' => request()->query('utm_campaign'), 'utm_source' => request()->query('utm_source'), 'utm_medium' => request()->query('utm_medium')], true, 'es');}}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
-                                        <img width="25px" src="{{asset('/img/translate.svg')}}" alt="{{__('Cambiar idioma')}}"> <span class="d-inline d-lg-none">{{__('Cambiar idioma')}}</span>
+                                    <a class="d-block align-self-center me-0 me-lg-3 text-red nav-link text-decoration-none fs-5" title="{{__('Cambiar idioma')}}" wire:navigate href="{{$url = route('unit', ['name'=>$unit_name, 'tower'=>$unit_tower,'utm_campaign' => request()->query('utm_campaign'), 'utm_source' => request()->query('utm_source'), 'utm_medium' => request()->query('utm_medium')], true, 'es');}}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
+                                        @include('components.lang-btn-icon') <span class="d-inline d-lg-none">{{__('Cambiar idioma')}}</span>
                                     </a>
         
                                 @endif
         
                             @else
-                                @if($route != 'es.unit' and $route != 'es.livewire.update')
+                                @if($route != 'es.unit')
         
-                                    <a href="{{$url = route($route, request()->query(), true, 'en')}}" wire:navigate class="d-block align-self-center me-0 me-lg-3 text-blue fs-4 text-decoration-none fw-light" title="{{__('Cambiar idioma')}}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
-                                        <img width="25px" src="{{asset('/img/translate.svg')}}" alt="{{__('Cambiar idioma')}}"> <span class="d-inline d-lg-none">{{__('Cambiar idioma')}}</span>
+                                    <a href="{{$url = route($route, request()->query(), true, 'en')}}" wire:navigate class="d-block align-self-center me-0 me-lg-3 text-red nav-link text-decoration-none fs-5" title="{{__('Cambiar idioma')}}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
+                                        @include('components.lang-btn-icon') <span class="d-inline d-lg-none">{{__('Cambiar idioma')}}</span>
                                     </a>
         
                                 @else
                                     
-                                    <a class="d-block align-self-center me-0 me-lg-3 text-blue fs-4 text-decoration-none fw-light" title="{{__('Cambiar idioma')}}" wire:navigate href="{{$url = route('unit', ['name'=>$unit_name, 'utm_campaign' => request()->query('utm_campaign'), 'utm_source' => request()->query('utm_source'), 'utm_medium' => request()->query('utm_medium')], true, 'en');}}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
-                                        <img width="25px" src="{{asset('/img/translate.svg')}}" alt="{{__('Cambiar idioma')}}"> <span class="d-inline d-lg-none">{{__('Cambiar idioma')}}</span>
+                                    <a class="d-block align-self-center me-0 me-lg-3 text-red nav-link text-decoration-none fs-5" title="{{__('Cambiar idioma')}}" wire:navigate href="{{$url = route('unit', ['name'=>$unit_name, 'tower'=>$unit_tower, 'utm_campaign' => request()->query('utm_campaign'), 'utm_source' => request()->query('utm_source'), 'utm_medium' => request()->query('utm_medium')], true, 'en');}}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
+                                        @include('components.lang-btn-icon') <span class="d-inline d-lg-none">{{__('Cambiar idioma')}}</span>
                                     </a>
         
                                 @endif
@@ -110,16 +119,24 @@
 
                     {{-- Redes sociales solo en móvil --}}
                     <div class="text-center fs-2 d-block d-lg-none mt-4">
-                        <a href="https://www.instagram.com/domus_vallarta/" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-blue me-2">
+                        <a href="https://www.instagram.com/domus_vallarta/" target="_blank" rel="noopener noreferrer" class="text-decoration-none link-light me-2">
                             <i class="fa-brands fa-instagram"></i>
                         </a>
             
-                        <a href="https://www.facebook.com/DomusVallartaInmobiliaria" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-blue">
+                        <a href="https://www.facebook.com/DomusVallartaInmobiliaria" target="_blank" rel="noopener noreferrer" class="text-decoration-none link-light">
                             <i class="fa-brands fa-square-facebook"></i>
                         </a>
                     </div>
 
                 </div>
+
+                @auth
+                    <div class="offcanvas-footer d-block d-lg-none">
+                        <div class="nav-item py-2 px-3">
+                            <button class="nav-link fs-5" wire:click="logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> {{__('Cerrar sesión')}}</button>
+                        </div>
+                    </div>
+                @endauth
 
             </div>
         </div>
