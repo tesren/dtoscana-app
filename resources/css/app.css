@@ -169,6 +169,11 @@ h1, h2, h3, h4, h5, h6{
     background-color: var(--red);
 }
 
+.login-img{
+    height: 80vh;
+    object-fit: cover;
+}
+
 @media (max-width: 992px) {
 
     .title-inventory{
@@ -210,6 +215,10 @@ h1, h2, h3, h4, h5, h6{
 
     .lang-icon{
         fill: white;
+    }
+
+    .login-img{
+        height: 30vh;
     }
 
 }

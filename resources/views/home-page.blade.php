@@ -119,7 +119,7 @@
                         </ul>
 
                         <ul class="ps-0 mb-4 mb-lg-5">
-                            <li class="mx-3">{{__('Lobby con contról de acceso')}}</li>
+                            <li class="mx-3">{{__('Lobby con control de acceso')}}</li>
                         </ul>
 
                         <div class="d-flex fs-3">
@@ -151,7 +151,7 @@
                     </div>
 
                     <div class="bg-outline-red rounded-4 p-4 p-lg-5">
-                        <h4>{{__('El estilo de vida que mereces')}}</h4>
+                        <h4 class="fs-3">{{__('El estilo de vida que mereces')}}</h4>
                         <p class="my-4 fs-5">{{__('Nuevo Vallarta es un destino espectacular que ofrece una combinación perfecta de lujo, naturaleza y actividades recreativas.')}}</p>
                         <a href="#" class="btn btn-red fs-5 px-4">{{__('Ver lo mejor de Nuevo Vallarta')}}</a>
                     </div>
@@ -196,6 +196,15 @@
         </div>
 
     </div>
+
+    @if (session('registered'))
+        <div class="position-fixed bottom-0 start-0 ms-1 ms-lg-3 z-3">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('registered') }} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    @endif
+
 
     @script
         <script>

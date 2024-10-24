@@ -9,8 +9,8 @@
 
     <div class="row justify-content-center my-5">
 
-        <div class="col-12 col-lg-5 col-xxl-4">
-            <img src="{{asset('/img/home-gallery/dtoscana-2.webp')}}" alt="D'Toscana Nuevo Vallarta" class="w-100 rounded-5 object-fit-cover" style="height: 80vh;">
+        <div class="col-12 col-lg-5 col-xxl-4 mb-4 mb-lg-0">
+            <img src="{{asset('/img/home-gallery/dtoscana-2.webp')}}" alt="D'Toscana Nuevo Vallarta" class="w-100 rounded-5 login-img">
         </div>
 
         <div class="col-12 col-lg-5 col-xxl-4 align-self-center px-3 px-lg-5">
@@ -40,10 +40,16 @@
                 </button>
             </form>
 
-            <a href="{{route('register')}}" wire:navigate class="text-center d-block text-red mt-2">{{__('¿No tienes cuenta? Crea una')}}</a>
+            <div class="text-center d-flex justify-content-center">
+                <button type="button" class="btn btn-link text-red" data-bs-toggle="modal" data-bs-target="#registerModal">{{__('Crear una cuenta')}}</button>
+
+                <button type="button" class="btn btn-link text-red" data-bs-toggle="modal" data-bs-target="#changePassModal">{{__('¿Olvidaste tu contraseña?')}}</button>
+            </div>
 
         </div>
 
     </div>
+
+    <livewire:forgot-password>
 
 </div>

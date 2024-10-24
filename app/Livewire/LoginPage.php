@@ -80,6 +80,8 @@ class LoginPage extends Component
     
         Session::regenerate();
     
+        session()->flash('registered', __('Bienvenido ') . auth()->user()->name);
+
         $this->redirect(HomePage::class, navigate: true);
     }
 

@@ -9,6 +9,7 @@ use App\Livewire\PrivacyPage;
 use App\Livewire\ProfilePage;
 use App\Livewire\RegisterPage;
 use App\Livewire\LifestylePage;
+use App\Livewire\ResetPassword;
 use App\Livewire\SavedUnitsPage;
 use Illuminate\Support\Facades\Route;
 
@@ -26,18 +27,20 @@ use Illuminate\Support\Facades\Route;
 Route::localized(function () {
 
     Route::get('/', HomePage::class)->name('home');
-    Route::get('/estilo-de-vida', LifestylePage::class)->name('lifestyle');
-    Route::get('/condominios-en-venta', SearchPage::class)->name('search');
-    Route::get('/contacto', ContactPage::class)->name('contact');
-    Route::get('/perfil', ProfilePage::class)->name('profile');
-    Route::get('/politicas-privacidad', PrivacyPage::class)->name('privacy');
-    Route::get('/unidades-guardadas', SavedUnitsPage::class)->name('saved');
-    Route::get('/condominio-dtoscana'.'/{tower}/{name}', UnitPage::class)->name('unit');
+    Route::get(Lang::uri('/estilo-de-vida'), LifestylePage::class)->name('lifestyle');
+    Route::get(Lang::uri('/condominios-en-venta'), SearchPage::class)->name('search');
+    Route::get(Lang::uri('/contacto'), ContactPage::class)->name('contact');
+    Route::get(Lang::uri('/perfil'), ProfilePage::class)->name('profile');
+    Route::get(Lang::uri('/politicas-privacidad'), PrivacyPage::class)->name('privacy');
+    Route::get(Lang::uri('/unidades-guardadas'), SavedUnitsPage::class)->name('saved');
+    Route::get(Lang::uri('/condominio-dtoscana').'/{tower}/{name}', UnitPage::class)->name('unit');
 
-    Route::get('/inicia-sesion', LoginPage::class)->name('login');
+    Route::get(Lang::uri('/inicia-sesion'), LoginPage::class)->name('login');
+    Route::get('/reset-password/{token}', ResetPassword::class)->name('password.reset');
 
     Livewire::setUpdateRoute(function ($handle) {
         return Route::post('/livewire/update', $handle);
     });
 
 });
+

@@ -2,22 +2,23 @@
 
 namespace App\Livewire;
 
+use App\Models\User;
 use Livewire\Component;
 use App\Livewire\HomePage;
+use Illuminate\Validation\Rules;
 use Livewire\Attributes\Validate;
-use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Registered;
 use Spatie\Honeypot\Http\Livewire\Concerns\HoneypotData;
 use Spatie\Honeypot\Http\Livewire\Concerns\UsesSpamProtection;
-use Illuminate\Validation\Rules;
 
 class RegisterForm extends Component
 {
     use UsesSpamProtection;
 
     public string $name = '';
-    public string $email = '';
+    public string $register_email = '';
     public string $password = '';
     public string $phone = '';
     public string $role = 'client';
@@ -38,7 +39,7 @@ class RegisterForm extends Component
     {
         $validated = $this->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'register_email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'phone' => ['nullable', 'string', 'max:10'],
             'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
             'role' => ['required', 'string', 'max:15'],
@@ -51,7 +52,7 @@ class RegisterForm extends Component
 
         $user = new User();
         $user->name = $validated['name'];
-        $user->email = $validated['email'];
+        $user->email = $validated['register_email'];
         $user->phone = $validated['phone'];
         $user->password = $validated['password'];
         $user->role = $validated['role'];
@@ -62,8 +63,9 @@ class RegisterForm extends Component
 
         Auth::login($user);
 
-        $this->redirect(HomePage::class, navigate: true);
+        session()->flash('registered', __('Bienvenido ').$user->name);
 
+        $this->redirect(HomePage::class, navigate: true);
     }
 
 

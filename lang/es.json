@@ -5,6 +5,7 @@
     "Reset Password": "Restablecer contraseña",
     "Sorry! You are not authorized to perform this action.": "¡Lo siento! No estás autorizado para ejecutar esta acción.",
     "You are receiving this email because we received a password reset request for your account.": "Estás recibiendo este correo electrónico porque hemos recibido una solicitud de restablecimiento de contraseña para tu cuenta.",
+    "This password reset link will expire in 60 minutes." : "Este enlace de restablecimiento de contraseña caducará en 60 minutos.",
     "Confirm Password": "Confirmar contraseña",
     "Dashboard": "Escritorio",
     "Email Address": "Correo electrónico",
@@ -459,5 +460,9 @@
     "Users" : "Usuarios",
     "Showing" : "Mostrando de",
     "results" : "resultados",
-    "to" : "a"
+    "to" : "a",
+    "Hello!" : "¡Hola!",
+    "Regards" : "Saludos",
+    "Regards," : "Saludos,",
+    "This password reset link will expire in 60 minutes" : "Este enlace de restablecimiento de contraseña caducará en 60 minutos"
 }

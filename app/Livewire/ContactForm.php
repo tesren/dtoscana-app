@@ -20,9 +20,9 @@ class ContactForm extends Component
     public $full_name = '';
  
     #[Validate('required')] 
-    public $email = '';
+    public $contact_email = '';
 
-    public $phone = '';
+    public $contact_phone = '';
     public $message = '';
     public $url = '';
 
@@ -50,8 +50,8 @@ class ContactForm extends Component
         $msg = new Message();
 
         $msg->name = $this->full_name;
-        $msg->email = $this->email;
-        $msg->phone = $this->phone;
+        $msg->email = $this->contact_email;
+        $msg->phone = $this->contact_phone;
         $msg->content = $this->message;
         $msg->url = $this->url;
 

@@ -22,17 +22,17 @@
                         <x-honeypot/>
             
                         <div class="col-12 mb-3">
-                            <label for="email" class="me-3 align-self-center">{{__('Correo')}}:</label>
-                            <input type="email" wire:model="email" id="email" class="form-control" required>
+                            <label for="contact_email" class="me-3 align-self-center">{{__('Correo')}}:</label>
+                            <input type="email" wire:model="contact_email" id="contact_email" class="form-control" required>
                         </div>
             
                         <div class="col-12 mb-3">
-                            <label for="phone" class="me-3 align-self-center">{{__('Teléfono')}}:</label>
-                            <input type="tel" wire:model="phone" id="phone" class="form-control">
+                            <label for="contact_phone" class="me-3 align-self-center">{{__('Teléfono')}}:</label>
+                            <input type="tel" wire:model="contact_phone" id="contact_phone" class="form-control">
                         </div>
             
                         <div class="col-12 mb-4">
-                            <label for="phone" class="me-3">{{__('Notas')}}:</label>
+                            <label for="message" class="me-3">{{__('Notas')}}:</label>
                             <textarea wire:model="message" id="message" cols="30" required class="form-control" rows="3"></textarea>
                         </div>
             

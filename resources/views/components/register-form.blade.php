@@ -10,7 +10,7 @@
 
             <div class="modal-body">
 
-                <p class="fs-5 fw-light">{{__('Crea tu cuenta y ten acceso a funciones únicas y atención personalizada')}}</p>
+                <p class="fs-5 fw-light mb-0">{{__('Crea tu cuenta y obten acceso a funciones únicas y atención personalizada')}}</p>
                 
                 <form wire:submit="register" class="px-6 py-4">
             
@@ -23,8 +23,8 @@
             
                     <!-- Email Address -->
                     <div class="mt-3">
-                        <x-input-label for="email" :value="__('Email')" />
-                        <x-text-input wire:model="email" id="email" class="mt-1" type="email" name="email" required autocomplete="username" />
+                        <x-input-label for="register_email" :value="__('Email')" />
+                        <x-text-input wire:model="register_email" id="register_email" class="mt-1" type="email" name="register_email" required autocomplete="username" />
                         <x-input-error :messages="$errors->get('email')" class="mt-2" />
                     </div>
             
@@ -48,9 +48,9 @@
             
                     <!-- Password -->
                     <div class="mt-3">
-                        <x-input-label for="password" :value="__('Contraseña')" />
+                        <x-input-label for="register_password" :value="__('Contraseña')" />
             
-                        <x-text-input wire:model="password" id="password" class="mt-1"
+                        <x-text-input wire:model="password" id="register_password" class="mt-1"
                                         type="password"
                                         name="password"
                                         required autocomplete="new-password" />
