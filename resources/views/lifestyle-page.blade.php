@@ -3,7 +3,7 @@
 
     @section('titles')
         <title>{{__('Estilo de vida')}} - D'Toscana</title>
-        <meta name="description" content="">
+        <meta name="description" content="{{__('Descubre el estilo de vida en Nuevo Vallarta: un paraíso rodeado de playas, campos de golf de clase mundial, exclusivos restaurantes y una vibrante oferta cultural. Vive en un entorno natural único, con opciones de deporte, recreación y relajación, rodeado de seguridad y privacidad. Ideal para quienes buscan lujo y bienestar en el corazón de la Riviera Nayarit.')}}">
     @endsection
 
 

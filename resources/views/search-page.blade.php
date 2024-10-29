@@ -3,7 +3,7 @@
 
     @section('titles')
         <title>{{__('Inventario')}} - D'Toscana</title>
-        <meta name="description" content="">
+        <meta name="description" content="{{__('Encuentra tu condominio ideal en D’Toscana, Nuevo Vallarta, con nuestro buscador avanzado. Filtra por precio, número de recámaras, superficie, vista y más para descubrir la propiedad que mejor se adapta a tu estilo de vida. Explora opciones exclusivas con amenidades de lujo, vistas panorámicas y acabados de alta calidad en la Riviera Nayarit.')}}">
     @endsection
 
 

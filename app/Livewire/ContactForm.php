@@ -96,7 +96,7 @@ class ContactForm extends Component
         
         $email->send(new NewLead($msg));
 
-        session()->flash('message', 'Mensaje enviado existosamente');
+        session()->flash('message', 'Mensaje enviado exitosamente');
 
         $this->reset();
 

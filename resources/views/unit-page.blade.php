@@ -2,7 +2,12 @@
     
     @section('titles')
         <title>{{__('Condominio')}} {{$unit->name}} - D'Toscana Nuevo Vallarta</title>
-        <meta name="description" content="">
+        <meta name="description" content="{{__('Descubre los detalles de este condominio en venta en D’Toscana, Nuevo Vallarta: :bedrooms recámaras, :bathrooms baños y :area m² de lujo en la Riviera Nayarit. Con acabados premium, vistas panorámicas y acceso a amenidades exclusivas como alberca infinity, gimnasio y roof garden. ¡Explora tu nuevo hogar ideal!', 
+                [
+                    'bedrooms' => $unit->unitType->bedrooms,
+                    'bathrooms' => $unit->unitType->bathrooms,
+                    'area' => $unit->const_total
+                ])}}">
     @endsection
 
     @php
@@ -110,7 +115,7 @@
             </h1>
 
             <p class="fw-light fs-5 mb-5">
-                {{__("Increíble condominio que fusiona lujo, confort y vistas asombrosas. Con un diseño amplio y contemporáneo, esta propiedad ofrece :bedrooms recámaras, :bathrooms baños, y un total de :area m². Disfruta de asombrosas áreas comunes con espléndidos ambientes, todo en una ubicación exclusiva en Bucerías, Nayarit. Experimenta un estilo de vida costero de primer nivel en D'Toscana Nuevo Vallarta.", 
+                {{__('Descubre los detalles de este condominio en venta en D’Toscana, Nuevo Vallarta: :bedrooms recámaras, :bathrooms baños y :area m² de lujo en la Riviera Nayarit. Con acabados premium, vistas panorámicas y acceso a amenidades exclusivas como alberca infinity, gimnasio y roof garden. ¡Explora tu nuevo hogar ideal!', 
                 [
                     'bedrooms' => $unit->unitType->bedrooms,
                     'bathrooms' => $unit->unitType->bathrooms,

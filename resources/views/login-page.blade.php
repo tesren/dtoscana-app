@@ -3,7 +3,7 @@
 
     @section('titles')
         <title>{{__('Inicia sesión')}} - D'Toscana</title>
-        <meta name="description" content="">
+        <meta name="description" content="{{__('Inicia sesión o crea una cuenta en D’Toscana, Nuevo Vallarta, para acceder a funciones exclusivas y recibir atención personalizada. Al registrarte, podrás guardar tus propiedades favoritas, recibir actualizaciones de disponibilidad y obtener asesoría directa sobre nuestros condominios de lujo en la Riviera Nayarit.')}}">
     @endsection
 
 

@@ -2,7 +2,7 @@
     {{-- Nothing in the world is as soft and yielding as water. --}}
     @section('titles')
         <title>{{__('Contacto')}} - D'Toscana</title>
-        <meta name="description" content="">
+        <meta name="description" content="{{__('Contácta a un agente de D’Toscana en Nuevo Vallarta para obtener más información sobre nuestros condominios en venta. Completa el formulario de contacto para recibir asesoría personalizada sobre precios, disponibilidad, planes de pago y detalles de las amenidades de lujo. Descubre tu nuevo hogar en la Riviera Nayarit.')}}">
     @endsection
 
     <div class="position-relative mb-6">

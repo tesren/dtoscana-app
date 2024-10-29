@@ -3,7 +3,7 @@
 
     @section('titles')
         <title>D'Toscana - {{__('Condominios en Venta y Preventa en Nuevo Vallarta')}}</title>
-        <meta name="description" content="">
+        <meta name="description" content="{{__('Condominios de lujo en Nuevo Vallarta, ubicados en Av. México con vistas al Tigre Golf & Country Club y Los Tigres Residencial. Torre exclusiva de 71 departamentos de 2 y 3 recámaras (110-150 m²) con acabados de alta calidad, cocina de granito, ventanería PVC y aire acondicionado. Amenidades premium: gimnasio, roof garden, alberca infinity climatizada y seguridad 24/7. Precios desde $5,355,000 MXN y planes de pago disponibles. ¡Descubre un estilo de vida sofisticado en un entorno natural único!')}}">
     @endsection
 
     <div class="row justify-content-center">
