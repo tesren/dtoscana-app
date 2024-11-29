@@ -71,7 +71,7 @@
             
                     <div class="mt-4 text-center">
                         <button type="submit" class="btn btn-red w-100 mb-2">{{__('Registrar')}}</button>
-                        <a class="text-red d-block" href="{{ route('login') }}" wire:navigate>
+                        <a class="text-red d-block" href="{{ route('login', request()->query() ) }}" wire:navigate>
                             {{ __('¿Ya tienes una cuenta?') }}
                         </a>
                     </div>

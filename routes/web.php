@@ -44,3 +44,13 @@ Route::localized(function () {
 
 });
 
+Route::get('/dtoscana-optimize', function() {
+
+    Artisan::call('cache:clear');
+    Artisan::call('route:cache');
+    Artisan::call('config:cache');
+    Artisan::call('view:cache');
+
+    return ('Optimizado');
+});
+

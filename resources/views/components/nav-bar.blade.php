@@ -4,7 +4,7 @@
     <nav class="navbar navbar-expand-xxl bg-white shadow-sm">
         <div class="container-fluid">
 
-            <a class="navbar-brand ms-0 ms-lg-4" href="{{route('home')}}" wire:navigate>
+            <a class="navbar-brand ms-0 ms-lg-4" href="{{route('home', ['contact'=>$contact] )}}" wire:navigate>
                 <img width="100px" src="{{asset('img/dtoscana-logo-red.svg')}}" alt="Logo D'Toscana">
             </a>
 
@@ -30,27 +30,29 @@
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-0 pe-lg-3">
 
                         <li class="nav-item me-0 me-lg-4">
-                            <a class="nav-link fs-5 @if( strpos($route, 'search') != false) active @endif" href="{{route('search')}}" wire:navigate>{{__('Inventario')}}</a>
+                            <a class="nav-link fs-5 @if( strpos($route, 'search') != false) active @endif" href="{{route('search', ['contact'=>$contact] )}}" wire:navigate>{{__('Inventario')}}</a>
                         </li>
 
                         <li class="nav-item me-0 me-lg-4">
-                            <a class="nav-link fs-5 @if( strpos($route, 'lifestyle') != false) active @endif" href="{{route('lifestyle')}}" wire:navigate>{{__('Estilo de vida')}}</a>
+                            <a class="nav-link fs-5 @if( strpos($route, 'lifestyle') != false) active @endif" href="{{route('lifestyle', ['contact'=>$contact] )}}" wire:navigate>{{__('Estilo de vida')}}</a>
                         </li>
 
                         @if ( count($const_updates) > 0)
                             <li class="nav-item me-0 me-lg-4">
-                                <a class="nav-link fs-5 @if( strpos($route, 'construction') != false) active @endif" href="{{--route('construction')--}}" wire:navigate>{{__('Avances de obra')}}</a>
+                                <a class="nav-link fs-5 @if( strpos($route, 'construction') != false) active @endif" href="{{route('construction', ['contact'=>$contact] )}}" wire:navigate>{{__('Avances de obra')}}</a>
                             </li>                            
                         @endif
 
-                        <li class="nav-item me-0 me-lg-4">
-                            <a class="nav-link fs-5 @if( strpos($route, 'contact') != false) active @endif" href="{{ route('contact') }}" wire:navigate>{{__('Contacto')}}</a>
-                        </li>
+                        @if ($contact != 'no')
+                            <li class="nav-item me-0 me-lg-4">
+                                <a class="nav-link fs-5 @if( strpos($route, 'contact') != false) active @endif" href="{{ route('contact', ['contact'=>$contact] ) }}" wire:navigate>{{__('Contacto')}}</a>
+                            </li>
+                        @endif
 
                         @guest
                             <li class="nav-item me-0 me-lg-4 align-self-start align-self-lg-center">
-                                <a class="btn btn-outline-red d-none d-lg-block" href="{{ route('login') }}" wire:navigate>{{__('Inicia sesión')}}</a>
-                                <a class="nav-link d-block d-lg-none fs-5" href="{{ route('login') }}" wire:navigate><i class="fa-solid fa-right-to-bracket"></i> {{__('Inicia sesión')}}</a>
+                                <a class="btn btn-outline-red d-none d-lg-block" href="{{ route('login', ['contact'=>$contact] ) }}" wire:navigate>{{__('Inicia sesión')}}</a>
+                                <a class="nav-link d-block d-lg-none fs-5" href="{{ route('login', ['contact'=>$contact] ) }}" wire:navigate><i class="fa-solid fa-right-to-bracket"></i> {{__('Inicia sesión')}}</a>
                             </li>
 
                             <li class="nav-item me-0 me-lg-4 align-self-start align-self-lg-center">

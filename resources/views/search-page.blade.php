@@ -213,7 +213,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ route('unit', ['name'=>$unit->name, 'tower'=>$unit->section->tower->name  ]) }}" class="btn btn-red" target="_blank" rel="noopener noreferrer">
+                                        <a href="{{ route('unit', array_merge(['name'=>$unit->name, 'tower'=>$unit->section->tower->name], request()->query() )) }}" class="btn btn-red" target="_blank" rel="noopener noreferrer">
                                             {{__('Ver más')}}
                                         </a>
                                     </td>

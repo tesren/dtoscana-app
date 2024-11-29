@@ -17,6 +17,9 @@ class NavBar extends Component
     public $unit_tower = 'Siena';
     public $route = '';
 
+    #[Url]
+    public ?string $contact;
+
     #[On('id-unidad')] 
     public function updateUnit($id)
     {
@@ -28,6 +31,7 @@ class NavBar extends Component
     public function mount()
     {
         $this->route = Route::currentRouteName();
+        $this->contact = request()->query('contact');
     }
 
     public function logout(){

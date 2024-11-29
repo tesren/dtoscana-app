@@ -26,7 +26,7 @@
                 </div>
 
                 <div class="align-self-center">
-                    <a href="{{route('profile')}}" class="title-inventory text-decoration-none" aria-label="Config">
+                    <a href="{{route('profile', request()->query() )}}" class="title-inventory text-decoration-none" aria-label="Config">
                         <i class="fa-solid fa-2x fa-gear"></i>
                     </a>
                 </div>
@@ -57,7 +57,7 @@
 
                 <div class="col-12 col-lg-3 align-self-center">
                     <div class="text-center my-3 my-lg-0">
-                        <a href="{{route('search')}}" class="btn btn-red rounded-pill fs-5" wire:navigate>
+                        <a href="{{route('search', request()->query() )}}" class="btn btn-red rounded-pill fs-5" wire:navigate>
                             {{__('Ver todo el inventario')}}
                         </a>    
                     </div>
@@ -95,7 +95,7 @@
                             </div>
                         </div>
     
-                        <a href="{{ route('unit', ['name' => $unit->name, 'tower'=> $unit->section->tower->name ]) }}" class="card border border-1 text-decoration-none border-dark rounded-4 overflow-hidden" wire:navigate>
+                        <a href="{{ route('unit', array_merge(['name' => $unit->name, 'tower'=> $unit->section->tower->name ], request()->query() ) ) }}" class="card border border-1 text-decoration-none border-dark rounded-4 overflow-hidden" wire:navigate>
     
                             <div class="p-0">
                                 @if ( isset($gallery[0]) )
@@ -158,7 +158,7 @@
 
             <h1>{{__('Aún no tienes unidades guardadas')}}</h1>
             <p class="fs-4 fw-light">{{__('Visita nuestro inventario para ver todas las unidades')}}</p>
-            <a href="{{route('search')}}" class="btn btn-red mb-6" wire:navigate>
+            <a href="{{route('search', request()->query() )}}" class="btn btn-red mb-6" wire:navigate>
                 {{__('Ver Inventario')}}
             </a>
 
