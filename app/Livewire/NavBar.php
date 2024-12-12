@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Unit;
+use App\Models\Tower;
 use Livewire\Component;
 use Livewire\Attributes\On;
 use App\Models\ConstructionUpdate;
@@ -46,7 +47,8 @@ class NavBar extends Component
     public function render()
     {
         $const_updates = ConstructionUpdate::latest('date')->get();
+        $towers = Tower::all();
 
-        return view('components.nav-bar', compact('const_updates'));
+        return view('components.nav-bar', compact('const_updates', 'towers'));
     }
 }

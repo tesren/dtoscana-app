@@ -87,12 +87,12 @@ class ContactForm extends Component
         ];
 
         // Enviar la solicitud POST al webhook
-        //$response = Http::post($webhookUrl, $data);
+        $response = Http::post($webhookUrl, $data);
 
 
-        //$email = Mail::to('info@domusvallarta.com')->bcc('ventas@punto401.com');
+        $email = Mail::to('info@domusvallarta.com')->bcc('ventas@punto401.com');
     
-        $email = Mail::to('erick@punto401.com');
+        //$email = Mail::to('erick@punto401.com');
         
         $email->send(new NewLead($msg));
 

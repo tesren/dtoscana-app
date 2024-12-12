@@ -38,7 +38,7 @@ class Unit extends Resource
     public static $model = \App\Models\Unit::class;
 
     public function title(){
-        return $this->name;
+        return $this->name.' Torre '.$this->section->tower->name;
     }
 
     /**
@@ -121,6 +121,23 @@ class Unit extends Resource
             Tag::make(__('Planes de pago'), 'paymentPlans', PaymentPlan::class)->hideFromIndex(),
 
             Images::make(__('Galería'), 'unitgallery')->hideFromIndex()/*->rules('required')*/->enableExistingMedia()->showStatistics()
+            ->singleImageRules('dimensions:max_width=2000, max:2048')
+            ->setFileName(function($originalFilename, $extension, $model){
+
+                // Eliminar caracteres especiales y acentos
+                $limpio = preg_replace('/[^A-Za-z0-9\-]/', '', strtr(utf8_decode($originalFilename), utf8_decode('áéíóúüñÁÉÍÓÚÜÑ'), 'aeiouunAEIOUUN'));
+
+                // Reemplazar espacios por guiones
+                $limpio = str_replace(' ', '-', $limpio);
+
+                // Convertir a minúsculas
+                $limpio = strtolower($limpio);
+                
+                return $limpio . '.' . $extension;
+
+            }),
+
+            Images::make(__('Isométricos'), 'isometrics')->hideFromIndex()/*->rules('required')*/->enableExistingMedia()->showStatistics()
             ->singleImageRules('dimensions:max_width=2000, max:2048')
             ->setFileName(function($originalFilename, $extension, $model){
 

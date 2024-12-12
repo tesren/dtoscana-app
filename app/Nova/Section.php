@@ -66,6 +66,8 @@ class Section extends Resource
             ])->displayUsingLabels()->sortable(),
 
             BelongsTo::make('Torre', 'tower', Tower::class)->withoutTrashed()->sortable(),
+            
+            Text::make('View Box', 'viewbox')/* ->rules('required') */->help('NO MODIFICAR, solo el administrador debería modificarlo.'),
 
             Image::make('Render', 'render_path')->help('Render donde se pueden apreciar todas las unidades de una vista')->disk('media'),
 

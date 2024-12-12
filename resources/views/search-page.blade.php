@@ -9,15 +9,8 @@
 
     <div class="row justify-content-center mt-0 mt-lg-5 mb-4 mb-lg-5">
 
-        <h1 class="col-12 col-lg-2 text-center text-lg-start position-relative py-4 py-lg-0 title-inventory mb-4 mb-lg-0">
-            <div class="fs-4 z-2 position-relative">{{__('Torre')}}</div>
-            <div class="fs-1 fw-bold z-2 position-relative">SIENA</div>
-
-            <img src="{{asset('/img/tower-name-bg.webp')}}" alt="" class="w-100 h-100 object-fit-cover position-absolute start-0 top-0 z-1 d-block d-lg-none">
-        </h1>
-
         <div class="col-12 col-lg-6 col-xxl-5">
-            <h2>{{__('Todas las comodidades en un solo lugar')}}</h2>
+            <h1 class="fs-2">{{__('Todas las comodidades en un solo lugar')}}</h1>
             <p>{{__('Selecciona las características de la unidad que deseas y comprueba disponibilidad')}}</p>
         </div>
 

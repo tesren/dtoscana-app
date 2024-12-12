@@ -69,7 +69,7 @@ class UnitType extends Resource
 
             Text::make(__('Nombre'), 'name')->rules('required', 'max:50')->sortable(),
 
-            BelongsTo::make('Torre', 'tower', Tower::class)->withoutTrashed()->sortable(),
+            BelongsTo::make('Torre', 'tower', Tower::class)->withoutTrashed()->sortable()->filterable(),
 
             Number::make(__('Recámaras'), 'bedrooms')->rules('required')->min(0)->max(15)->help('Dejar en 0 si es Loft o Studio')->sortable(),
             Number::make(__('Cuartos Flex'), 'flexrooms')->rules('nullable')->min(0)->max(15)->sortable(),
