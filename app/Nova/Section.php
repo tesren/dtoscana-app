@@ -30,7 +30,7 @@ class Section extends Resource
      * @var array
      */
     public static $search = [
-        'name',
+        'view',
     ];
 
     /**

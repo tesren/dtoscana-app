@@ -118,7 +118,7 @@
                                         @endphp
 
                                         @if ( isset($blueprints[0]) )
-                                            <img src="{{ $blueprints[0]->getUrl('medium') }}" alt="{{__('Unidad')}} {{$unit->name}} {{__('Torre')}} {{$unit->tower_name}}" class="w-100" loading="lazy">
+                                            <img src="{{ $blueprints[0]->getUrl('thumb') }}" alt="{{__('Unidad')}} {{$unit->name}} {{__('Torre')}} {{$unit->tower_name}}" class="w-100" loading="lazy">
                                         @endif
                 
                                         <div class="d-flex justify-content-center fs-5 mt-4">

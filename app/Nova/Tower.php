@@ -5,6 +5,7 @@ namespace App\Nova;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -59,6 +60,7 @@ class Tower extends Resource
             Text::make('Nombre', 'name')->sortable()->rules('required', 'max:50'),
             Text::make('Descripción Español', 'description_es')->sortable()->rules('max:100'),
             Text::make('Descripción Inglés', 'description_en')->sortable()->rules('max:100'),
+            Boolean::make('Inventario Gráfico', 'inventory_type')->sortable(),
             
             //HasMany::make('Unidades', 'units', Unit::class),
         ];

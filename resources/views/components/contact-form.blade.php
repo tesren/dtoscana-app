@@ -84,7 +84,7 @@
                 <div class="d-none d-lg-block">
                     <div class="fs-2 lh-1">{{__('Revisa nuestro inventario')}}</div>
                     <div class="fs-4 fw-light mb-3">{{__('y descubre todo lo que tenemos para ti')}}.</div>
-                    <a href="#" wire:navigate class="btn btn-red fs-5 fw-light px-5">{{__('Ver inventario')}}</a>
+                    <a href="{{ route('tower', ['name' => 'Lucca'] ) }}" wire:navigate class="btn btn-red fs-5 fw-light px-5">{{__('Ver inventario')}}</a>
                 </div>
 
             </div>

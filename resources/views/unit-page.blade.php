@@ -50,10 +50,6 @@
     <div class="row justify-content-evenly mt-4 mb-6">
         @if ( count($images) > 1 )
 
-            @for ($i=1; $i < count($images); $i++)
-                <img src="{{ $images[$i]->getUrl('large') }}" alt="{{__('Condominio')}} {{$unit->name}} - D'Toscana Nuevo Vallarta" class="d-none" data-fancybox="gallery">
-            @endfor
-
             <div class="col-12 col-lg-7 position-relative">
                 <img src="{{ $images[0]->getUrl('large') }}" alt="{{__('Condominio')}} {{$unit->name}} - D'Toscana Nuevo Vallarta" class="w-100 object-fit-cover rounded-4 h-100" data-fancybox="gallery" style="max-height: 85vh;">
 
@@ -66,6 +62,12 @@
                 <img src="{{ $images[1]->getUrl('large') }}" alt="{{__('Condominio')}} {{$unit->name}} - D'Toscana Nuevo Vallarta" class="w-100 object-fit-cover rounded-4 mb-3 d-none d-lg-block" style="height: 76vh;" data-fancybox="gallery">
                 <a href="#lead_form" class="btn btn-red fs-5 py-3 px-3 px-lg-4 rounded-4 w-100">{{__('¿Necesitas más información?')}}</a>
             </div>
+
+            @if ( count($images) > 2 )
+                @for ($i=2; $i < count($images); $i++)
+                    <img src="{{ $images[$i]->getUrl('large') }}" alt="{{__('Condominio')}} {{$unit->name}} - D'Toscana Nuevo Vallarta" class="d-none" data-fancybox="gallery">
+                @endfor
+            @endif
         
         @else
 
@@ -205,11 +207,14 @@
 
         <div class="col-12 col-lg-6">
             {{-- Distribución --}}
+            <h3 class="fw-light">{{__('Distribución')}}</h3>
+            <img class="w-100 mb-5" src="{{ asset('/img/planos/'.$unit->name.'.jpg') }}" alt="Distribución de la unidad {{$unit->name}} de D'Toscana" data-fancybox="blueprints" loading="lazy">
             
             @if ( count($blueprints) > 0 )
-                <h3 class="fw-light">{{__('Distribución')}}</h3>
-                <img class="w-100 mb-5" src="{{ $blueprints[0]->getUrl('medium') }}" alt="Distribución de la unidad {{$unit->name}} de D'Toscana" data-fancybox="blueprints" loading="lazy">
+                <img class="d-none" src="{{ $blueprints[0]->getUrl('medium') }}" alt="Distribución de la unidad {{$unit->name}} de D'Toscana" data-fancybox="blueprints" loading="lazy">
+            @endif
 
+            @if (count($blueprints) > 1)
                 <img src="{{$blueprints[1]->getUrl('medium')}}" alt="Distribución de la unidad {{$unit->name}} de D'Toscana" class="d-none" data-fancybox="blueprints" loading="lazy">
             @endif
 

@@ -17,37 +17,49 @@
                 <div class="carousel-inner">
     
                   <div class="carousel-item active">
-                    <img src="{{asset('img/tower-lucca.webp')}}" class="d-block w-100 object-fit-cover shadow" alt="{{__('Torre')}} Lucca D'Toscana" style="height: 82vh;">
+                    <img src="{{asset('img/tower-lucca.webp')}}" class="d-block w-100 object-fit-cover shadow" alt="{{__('Torre')}} Lucca D'Toscana" style="max-height: 82vh; min-height:50vh;">
 
-                    <h1 class="position-absolute top-50 start-50 ff-spartan text-white text-shadow lh-1 text-uppercase" style="transform:translate(-50%, -50%);">
-                        <div>{{__('Torre')}}</div>
-                        <div class="fs-0">LUCCA</div>
-                    </h1>
+                    <div class="row justify-content-center position-absolute start-0 top-0 mb-5 mb-lg-4 z-3 h-100">
 
-                    <div class="row justify-content-center justify-content-lg-start position-absolute start-0 bottom-0 mb-5 mb-lg-4">
-                        <div class="col-10 col-lg-3 p-4 bg-glass text-white rounded-3 ms-0 ms-lg-4">
-                            <h2>{{__('Preventa')}}</h2>
-                            <p class="fs-5 fw-light">{{__('Departamentos de 2 y 3 recámaras')}}</p>
-                            <a href="#" class="btn btn-red w-100">{{__('Ver Inventario')}}</a>
+                        <div class="col-11 col-lg-8 col-xxl-6 text-white text-shadow align-self-center">
+
+                            <div class="d-flex justify-content-center">
+                                <h1 class="ff-spartan lh-1 text-uppercase mb-0">
+                                    <div>{{__('Torre')}}</div>
+                                    <div class="fs-0">LUCCA</div>
+                                </h1>
+                            </div>
+
+                            <div class="text-center">
+                                <h2 class="mb-4 fs-3">{{__('Preventa')}}, {{__('departamentos de 2 y 3 recámaras')}}.</h2>
+                                <a href="{{ route('tower', ['name' => 'Lucca'] ) }}" wire:navigate class="btn btn-red fs-5 px-5">{{__('Ver Inventario')}}</a>
+                            </div>
                         </div>
+
                     </div>
 
                   </div>
     
                   <div class="carousel-item">
-                    <img src="{{asset('img/tower-siena.webp')}}" class="d-block w-100 object-fit-cover shadow" alt="{{__('Torre')}} Siena D'Toscana" loading="lazy" style="height: 82vh;">
+                    <img src="{{asset('img/tower-siena.webp')}}" class="d-block w-100 object-fit-cover shadow" alt="{{__('Torre')}} Siena D'Toscana" loading="lazy" style="max-height: 82vh; min-height:50vh;">
 
-                    <h2 class="position-absolute top-50 start-50 ff-spartan text-white text-shadow lh-1 text-uppercase" style="transform:translate(-50%, -50%);">
-                        <div class="fs-1">{{__('Torre')}}</div>
-                        <div class="fs-0">SIENA</div>
-                    </h2>
+                    <div class="row justify-content-center position-absolute start-0 top-0 mb-5 mb-lg-4 z-3 h-100">
 
-                    <div class="row justify-content-center justify-content-lg-start position-absolute start-0 bottom-0 mb-5 mb-lg-4">
-                        <div class="col-10 col-lg-3 p-4 bg-glass text-white rounded-3 ms-0 ms-lg-4">
-                            <h2>{{__('Entrega inmediata')}}</h2>
-                            <p class="fs-5 fw-light">{{__('Departamentos de 2 y 3 recámaras')}}</p>
-                            <a href="#" class="btn btn-red w-100">{{__('Ver Inventario')}}</a>
+                        <div class="col-11 col-lg-8 col-xxl-6 text-white text-shadow align-self-center">
+
+                            <div class="d-flex justify-content-center">
+                                <h1 class="ff-spartan lh-1 text-uppercase mb-0">
+                                    <div>{{__('Torre')}}</div>
+                                    <div class="fs-0">SIENA</div>
+                                </h1>
+                            </div>
+
+                            <div class="text-center">
+                                <h2 class="mb-4 fs-3">{{__('Entrega inmediata')}}, {{__('departamentos de 2 y 3 recámaras')}}.</h2>
+                                <a href="{{ route('tower', ['name' => 'Siena'] ) }}" wire:navigate class="btn btn-red fs-5 px-5">{{__('Ver Inventario')}}</a>
+                            </div>
                         </div>
+
                     </div>
 
                   </div>
@@ -74,7 +86,7 @@
 
                 <div class="col-12 col-lg-7 align-self-center">
                     <h3 class="fs-2">{{__('El lugar donde quieres estar')}}</h3>
-                    <p class="fs-5">{{__('Se ubica en la bahía más grande de México y es considerada una de las más hermosas en el mundo. La Riviera Nayarit es uno de los destinos de playa más importantes del país. El complejo está conformado por un hípico de uso privado y 355 espacios residenciales distribuidos en 5 torres, mismas que cuentan con un rooftop con alberca, área de niño, gimnasio, área de asador, terraza cubierta, asoleaderos y áreas verdes')}}</p>
+                    <p class="fs-5">{{__('Se ubica en la bahía más grande de México y es considerada una de las más hermosas en el mundo. La Riviera Nayarit es uno de los destinos de playa más importantes del país. El complejo está conformado por 355 espacios residenciales distribuidos en 5 torres, mismas que cuentan con un rooftop con alberca, área de niños, gimnasio, área de asador, terraza cubierta, asoleaderos y áreas verdes')}}.</p>
                 </div>
 
             </div>
@@ -153,26 +165,29 @@
                     <div class="bg-outline-red rounded-4 p-4 p-lg-5">
                         <h4 class="fs-3">{{__('El estilo de vida que mereces')}}</h4>
                         <p class="my-4 fs-5">{{__('Nuevo Vallarta es un destino espectacular que ofrece una combinación perfecta de lujo, naturaleza y actividades recreativas.')}}</p>
-                        <a href="#" class="btn btn-red fs-5 px-4">{{__('Ver lo mejor de Nuevo Vallarta')}}</a>
+                        <a href="{{route('lifestyle')}}" class="btn btn-red fs-5 px-4">{{__('Ver lo mejor de Nuevo Vallarta')}}</a>
                     </div>
 
                 </div>
 
             </div>
 
-            {{-- Master plan --}}
+            {{-- ubicacion --}}
             <div class="row mb-6">
 
-                <div class="col-12 col-xxl-4">
-                    <h3 class="fs-2 mb-1">{{__('Master Plan')}}</h3>
-                    <div class="fs-4 fw-light mb-4">{{__('Un futuro asegurado')}}</div>
+                <div class="col-12 mb-6">
+                    <h3 class="fs-2 mb-1">{{__('Ubicación')}}</h3>
+                    <div class="fs-4 fw-light mb-4">{{__('Cerca de lo que mas te importa')}}</div>
 
-                    <p class="mb-4 fs-5">{{__('Torre de 71 condominios con vistas al Hípico Toscana y a El Tigre Golf & Country Club y Los Tigres Residencial.')}}</p>
+                    <p class="mb-4 fs-5">
+                        {{__('Torre de 71 condominios con vistas al Hípico Toscana y a El Tigre Golf & Country Club y Los Tigres Residencial.')}}
+                        {{__('Ubicado en Nuevo Vallarta, el cual es conocido por sus campos de golf, su puerto deportivo y su larga playa de arena blanca.')}}
+                    </p>
 
                     <iframe class="rounded-4" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4118.774091590878!2d-105.28075583125899!3d20.706839393283897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842147332cd8faeb%3A0x46046aa906d6e728!2sD&#39;%20Toscana%20Residencial!5e0!3m2!1ses-419!2smx!4v1728920680333!5m2!1ses-419!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
 
-                <div class="col-12 col-xxl-8 position-relative mt-5 mt-lg-0">
+                <div class="col-12 position-relative">
                     <img src="{{asset('img/master-plan-siena.webp')}}" alt="Master Plan Tower Siena D'Toscana" class="w-100 h-100 object-fit-cover rounded-4">
 
                     <div class="position-absolute top-0 start-0 ms-5 mt-4 text-white">

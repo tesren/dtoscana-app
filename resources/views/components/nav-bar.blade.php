@@ -38,8 +38,11 @@
                             <ul class="dropdown-menu">
                               
                                 @foreach ($towers as $tower)
-                                    <li><a class="dropdown-item" href="{{ route('tower', ['name' => $tower->name] ) }}">{{__('Torre')}} {{$tower->name}}</a></li>
-                                    @break
+                                    @if ($tower->inventory_type == 1)
+                                        <li><a class="dropdown-item" href="{{ route('tower', ['name' => $tower->name] ) }}">{{__('Torre')}} {{$tower->name}}</a></li>
+                                    @else
+                                        <li><a class="dropdown-item" href="{{ route('search', ['tower' => $tower->id] ) }}">{{__('Torre')}} {{$tower->name}}</a></li>
+                                    @endif
                                 @endforeach
 
                               <li>

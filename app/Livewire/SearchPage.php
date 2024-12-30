@@ -7,15 +7,17 @@ use App\Models\Tower;
 use Livewire\Component;
 use App\Models\UnitType;
 use Livewire\WithPagination;
+use Livewire\Attributes\Url;
 
 class SearchPage extends Component
 {
     use WithPagination;
 
+    #[Url]
+    public $tower = 0;
     public $search_status = 0;
     public $floor = 0;
     public $bedrooms = 0;
-    public $tower = 0;
     public $unit_type = 0;
     public $min_price = 1;
     public $max_price = 9999999999;
