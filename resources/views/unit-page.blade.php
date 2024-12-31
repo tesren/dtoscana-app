@@ -12,7 +12,7 @@
 
     @php
 
-        $images = $unit->getMedia('gallery');
+        $images = $unit->getMedia('unitgallery');
         
         if ( count($images) <= 0) {
             $images = $unit->unitType->getMedia('gallery');

@@ -182,7 +182,7 @@ class Unit extends Resource
 
                     if($formData->unitType != null){
                         $unit_type = TypeUnit::findOrFail($formData->unitType);
-                        $field->setValue($unit_type->bedrooms);
+                        $field->default($unit_type->bedrooms);
                     }
 
                 }
@@ -194,7 +194,7 @@ class Unit extends Resource
 
                     if($formData->unitType != null){
                         $unit_type = TypeUnit::findOrFail($formData->unitType);
-                        $field->setValue($unit_type->bathrooms);
+                        $field->default($unit_type->bathrooms);
                     }
 
                 }
@@ -211,7 +211,7 @@ class Unit extends Resource
 
                     if($formData->unitType != null){
                         $unit_type = TypeUnit::findOrFail($formData->unitType);
-                        $field->setValue($unit_type->interior_const);
+                        $field->default($unit_type->interior_const);
                     }
 
                 }
@@ -228,7 +228,7 @@ class Unit extends Resource
 
                     if($formData->unitType != null){
                         $unit_type = TypeUnit::findOrFail($formData->unitType);
-                        $field->setValue($unit_type->exterior_const);
+                        $field->default($unit_type->exterior_const);
                     }
 
                 }
@@ -262,7 +262,7 @@ class Unit extends Resource
                         $total_const = $unit_type->interior_const + $unit_type->exterior_const;
                         $total_const = round($total_const, 2);
 
-                        $field->setValue($total_const);
+                        $field->default($total_const);
                     }
 
                 }
