@@ -15,10 +15,11 @@ class SearchPage extends Component
 
     #[Url]
     public $tower = 0;
+
     public $search_status = 0;
     public $floor = 0;
     public $bedrooms = 0;
-    public $unit_type = 0;
+    //public $unit_type = 0;
     public $min_price = 1;
     public $max_price = 9999999999;
 
@@ -48,7 +49,6 @@ class SearchPage extends Component
     {
         $units = Unit::where('price', '>' ,$this->min_price)->where('price','<', $this->max_price)->where('status', '!=', 'Vendida');
 
-        $unit_types = UnitType::all();
 
         $towers = Tower::all();
 
@@ -65,10 +65,6 @@ class SearchPage extends Component
             }            
         }
 
-        if($this->unit_type != 0){
-            $units = $units->where('unit_type_id', $this->unit_type );
-        }
-
         if( $this->bedrooms != 0 ){
             $units = $units->where('bedrooms', $this->bedrooms );            
         }
@@ -76,6 +72,6 @@ class SearchPage extends Component
         $units = $units->orderBy('status', 'desc')->paginate(12);
 
 
-        return view('search-page', compact('units', 'unit_types', 'towers'));
+        return view('search-page', compact('units', 'towers'));
     }
 }

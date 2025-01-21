@@ -39,9 +39,9 @@
                               
                                 @foreach ($towers as $tower)
                                     @if ($tower->inventory_type == 1)
-                                        <li><a class="dropdown-item" href="{{ route('tower', ['name' => $tower->name] ) }}">{{__('Torre')}} {{$tower->name}}</a></li>
+                                        <li><a class="dropdown-item" wire:navigate href="{{ route('tower', ['name' => $tower->name] ) }}">{{__('Torre')}} {{$tower->name}}</a></li>
                                     @else
-                                        <li><a class="dropdown-item" href="{{ route('search', ['tower' => $tower->id] ) }}">{{__('Torre')}} {{$tower->name}}</a></li>
+                                        <li><a class="dropdown-item" wire:navigate href="{{ route('search', ['tower' => $tower->id] ) }}">{{__('Torre')}} {{$tower->name}}</a></li>
                                     @endif
                                 @endforeach
 
@@ -108,7 +108,7 @@
                             @if ($lang == 'en')
                                 @if($route == 'en.unit')
         
-                                    <a class="d-block align-self-center me-0 me-lg-3 text-red nav-link text-decoration-none fs-5" title="{{__('Cambiar idioma')}}" wire:navigate href="{{$url = route('unit', ['name'=>$unit_name, 'tower'=>$unit_tower,'utm_campaign' => request()->query('utm_campaign'), 'utm_source' => request()->query('utm_source'), 'utm_medium' => request()->query('utm_medium')], true, 'es');}}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
+                                    <a class="d-block align-self-center me-0 me-lg-3 text-red nav-link text-decoration-none fs-5" title="{{__('Cambiar idioma')}}" wire:navigate href="{{$url = route('unit', ['name'=>$unit_name, 'tower_name'=>$unit_tower,'utm_campaign' => request()->query('utm_campaign'), 'utm_source' => request()->query('utm_source'), 'utm_medium' => request()->query('utm_medium')], true, 'es');}}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
                                         @include('components.lang-btn-icon') <span class="d-inline d-lg-none">{{__('Cambiar idioma')}}</span>
                                     </a>
                                 @elseif($route == 'en.password.reset')
@@ -130,7 +130,7 @@
                             @else
                                 @if($route == 'es.unit')
         
-                                    <a class="d-block align-self-center me-0 me-lg-3 text-red nav-link text-decoration-none fs-5" title="{{__('Cambiar idioma')}}" wire:navigate href="{{$url = route('unit', ['name'=>$unit_name, 'tower'=>$unit_tower, 'utm_campaign' => request()->query('utm_campaign'), 'utm_source' => request()->query('utm_source'), 'utm_medium' => request()->query('utm_medium')], true, 'en');}}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
+                                    <a class="d-block align-self-center me-0 me-lg-3 text-red nav-link text-decoration-none fs-5" title="{{__('Cambiar idioma')}}" wire:navigate href="{{$url = route('unit', ['name'=>$unit_name, 'tower_name'=>$unit_tower, 'utm_campaign' => request()->query('utm_campaign'), 'utm_source' => request()->query('utm_source'), 'utm_medium' => request()->query('utm_medium')], true, 'en');}}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
                                         @include('components.lang-btn-icon') <span class="d-inline d-lg-none">{{__('Cambiar idioma')}}</span>
                                     </a>
 

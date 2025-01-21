@@ -118,7 +118,7 @@ class Unit extends Resource
                 }
             ), */
 
-            Tag::make(__('Planes de pago'), 'paymentPlans', PaymentPlan::class)->hideFromIndex(),
+            Tag::make(__('Planes de pago'), 'paymentPlans', PaymentPlan::class),
 
             Images::make(__('Galería'), 'unitgallery')->hideFromIndex()/*->rules('required')*/->enableExistingMedia()->showStatistics()
             ->singleImageRules('dimensions:max_width=2000, max:2048')
@@ -267,6 +267,8 @@ class Unit extends Resource
 
                 }
             ),
+
+            Boolean::make('Bodega', 'storage')->help('Marca la casilla si esta unidad cuenta con bodega'),
         ];
     }
 

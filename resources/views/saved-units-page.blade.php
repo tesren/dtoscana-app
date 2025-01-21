@@ -26,7 +26,7 @@
                 </div>
 
                 <div class="align-self-center">
-                    <a href="{{route('profile', request()->query() )}}" class="title-inventory text-decoration-none" aria-label="Config">
+                    <a href="{{route('profile', request()->query() )}}" wire:navigate class="title-inventory text-decoration-none" aria-label="Config">
                         <i class="fa-solid fa-2x fa-gear"></i>
                     </a>
                 </div>
@@ -95,7 +95,7 @@
                             </div>
                         </div>
     
-                        <a href="{{ route('unit', array_merge(['name' => $unit->name, 'tower'=> $unit->section->tower->name ], request()->query() ) ) }}" class="card border border-1 text-decoration-none border-dark rounded-4 overflow-hidden" wire:navigate>
+                        <a href="{{ route('unit', array_merge(['name' => $unit->name, 'tower_name'=> $unit->section->tower->name ], request()->query() ) ) }}" class="card border border-1 text-decoration-none border-dark rounded-4 overflow-hidden" wire:navigate>
     
                             <div class="p-0">
                                 @if ( isset($gallery[0]) )

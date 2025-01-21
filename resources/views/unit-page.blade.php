@@ -149,6 +149,12 @@
                     <i class="fa-solid fa-building"></i> {{__('Torre')}} {{$unit->section->tower->name}}
                 </div>
 
+                @if ($unit->storage == 1)
+                    <div class="col-12 col-lg-6 mb-1 mt-3">
+                        <i class="fa-solid fa-warehouse"></i> {{__('Incluye bodega subterránea')}}
+                    </div>
+                @endif
+
             </div>
 
             <h2 class="fs-5 text-yellow">{{__('Dimensiones')}}</h2>
@@ -203,62 +209,66 @@
     </div>
 
     {{-- Planos --}}
-    <div class="row justify-content-evenly mb-6">
+    @if ($unit->section->tower->name == 'Lucca')
 
-        <div class="col-12 col-lg-6">
-            {{-- Distribución --}}
-            <h3 class="fw-light">{{__('Distribución')}}</h3>
-            <img class="w-100 mb-5" src="{{ asset('/img/planos/'.$unit->name.'.jpg') }}" alt="Distribución de la unidad {{$unit->name}} de D'Toscana" data-fancybox="blueprints" loading="lazy">
+        <div class="row justify-content-evenly mb-6">
+
+            <div class="col-12 col-lg-6">
+                {{-- Distribución --}}
+                <h3 class="fw-light">{{__('Distribución')}}</h3>
+                <img class="w-100 mb-5" src="{{ asset('/img/planos/'.$unit->name.'.jpg') }}" alt="Distribución de la unidad {{$unit->name}} de D'Toscana" data-fancybox="blueprints" loading="lazy">
+                
+                @if ( count($blueprints) > 0 )
+                    <img class="d-none" src="{{ $blueprints[0]->getUrl('medium') }}" alt="Distribución de la unidad {{$unit->name}} de D'Toscana" data-fancybox="blueprints" loading="lazy">
+                @endif
+
+                @if (count($blueprints) > 1)
+                    <img src="{{$blueprints[1]->getUrl('medium')}}" alt="Distribución de la unidad {{$unit->name}} de D'Toscana" class="d-none" data-fancybox="blueprints" loading="lazy">
+                @endif
+
+            </div>
+
+            <div class="col-12 col-lg-5 col-xxl-4 align-self-center mb-5" style="background-image: url('{{asset('img/blueprint-bg.webp')}}'); background-repeat: no-repeat; background-position: center; background-size: contain;">
+
+                <h3 class="fw-light">{{__('Localización')}}</h3>
+
+                <div class="position-relative">
+
+                    <img src="{{ asset('media/'.$unit->section->render_path ) }}" alt="D'Toscana, {{$unit->section->tower->name}}, Unidad {{$unit->name}}" class="w-100 shadow rounded-2" loading="lazy">
             
-            @if ( count($blueprints) > 0 )
-                <img class="d-none" src="{{ $blueprints[0]->getUrl('medium') }}" alt="Distribución de la unidad {{$unit->name}} de D'Toscana" data-fancybox="blueprints" loading="lazy">
-            @endif
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" class="position-absolute start-0 top-0" viewBox="{{$unit->section->viewbox}}">
+                        
+                        {{-- unidad marcada --}}
+                        @isset($unit->shape->form_type)
+                            @if ($unit->shape->form_type == 'rect')
+                                <rect class="marked-unit" x="{{$unit->shape->rect_x ?? '0'}}" y="{{$unit->shape->rect_y ?? '0'}}" width="{{$unit->shape->width ?? '0'}}" height="{{$unit->shape->height ?? '0'}}"/>
+                            @else
+                                <polygon class="marked-unit" points="{{$unit->shape->points ?? '0,0'}}"></polygon>
+                            @endif
+                        @endisset
+                        
+                        <text x="{{$unit->shape->text_x ?? '0'}}" y="{{$unit->shape->text_y ?? '0' }}"
+                            font-size="26" fill="#fff" class="fw-light">
 
-            @if (count($blueprints) > 1)
-                <img src="{{$blueprints[1]->getUrl('medium')}}" alt="Distribución de la unidad {{$unit->name}} de D'Toscana" class="d-none" data-fancybox="blueprints" loading="lazy">
-            @endif
+                            <tspan class="fw-normal">{{$unit->name}}</tspan>
+                            
+                        </text>
+                        
 
-        </div>
+                    </svg>
 
-        <div class="col-12 col-lg-5 col-xxl-4 align-self-center mb-5" style="background-image: url('{{asset('img/blueprint-bg.webp')}}'); background-repeat: no-repeat; background-position: center; background-size: contain;">
+                </div>
 
-          <h3 class="fw-light">{{__('Localización')}}</h3>
-
-          <div class="position-relative">
-
-            <img src="{{ asset('media/'.$unit->section->render_path ) }}" alt="D'Toscana, {{$unit->section->tower->name}}, Unidad {{$unit->name}}" class="w-100 shadow rounded-2" loading="lazy">
-    
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" class="position-absolute start-0 top-0" viewBox="{{$unit->section->viewbox}}">
-                
-                {{-- unidad marcada --}}
-                @isset($unit->shape->form_type)
-                    @if ($unit->shape->form_type == 'rect')
-                        <rect class="marked-unit" x="{{$unit->shape->rect_x ?? '0'}}" y="{{$unit->shape->rect_y ?? '0'}}" width="{{$unit->shape->width ?? '0'}}" height="{{$unit->shape->height ?? '0'}}"/>
-                    @else
-                        <polygon class="marked-unit" points="{{$unit->shape->points ?? '0,0'}}"></polygon>
-                    @endif
-                @endisset
-                
-                <text x="{{$unit->shape->text_x ?? '0'}}" y="{{$unit->shape->text_y ?? '0' }}"
-                    font-size="26" fill="#fff" class="fw-light">
-
-                    <tspan class="fw-normal">{{$unit->name}}</tspan>
-                    
-                </text>
-                
-
-            </svg>
-
-          </div>
+            </div>
 
         </div>
+    @endif
 
-    </div>
 
     <div class="row justify-content-center mb-6">
 
         {{-- Planes de pago --}}
-        @if( $unit->status != 'Vendida' )
+        @if( $unit->status != 'Vendida' and $unit->paymentPlans->count() > 0 )
             <div class="col-12 col-lg-8 order-2 order-lg-1 px-2 px-lg-0">
 
                 <div class="px-0 shadow">

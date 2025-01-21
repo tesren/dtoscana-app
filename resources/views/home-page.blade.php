@@ -165,7 +165,7 @@
                     <div class="bg-outline-red rounded-4 p-4 p-lg-5">
                         <h4 class="fs-3">{{__('El estilo de vida que mereces')}}</h4>
                         <p class="my-4 fs-5">{{__('Nuevo Vallarta es un destino espectacular que ofrece una combinación perfecta de lujo, naturaleza y actividades recreativas.')}}</p>
-                        <a href="{{route('lifestyle')}}" class="btn btn-red fs-5 px-4">{{__('Ver lo mejor de Nuevo Vallarta')}}</a>
+                        <a href="{{route('lifestyle')}}" wire:navigate class="btn btn-red fs-5 px-4">{{__('Ver lo mejor de Nuevo Vallarta')}}</a>
                     </div>
 
                 </div>

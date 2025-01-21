@@ -77,18 +77,6 @@
                             </select>
                             <label for="bedrooms">{{__('Recámaras')}}</label>
                         </div>
-    
-                        <div class="form-floating mb-3 mb-lg-0">
-                            <select class="form-select" id="unit_type" wire:model="unit_type" aria-label="{{__('Tipo')}}">
-                                <option value="0">{{__('Cualquier tipo')}}</option>
-
-                                @foreach ($unit_types as $type)
-                                    <option value="{{$type->id}}">{{ $type->name }}</option>
-                                @endforeach
-                                
-                            </select>
-                            <label for="unit_type">{{__('Tipo')}}</label>
-                        </div>
         
                         <div class="form-floating mb-3 mb-lg-0">
                             <select class="form-select" id="min_price" wire:model="min_price" aria-label="{{__('Precio min.')}}">
@@ -206,7 +194,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ route('unit', array_merge(['name'=>$unit->name, 'tower'=>$unit->section->tower->name], request()->query() )) }}" class="btn btn-red" target="_blank" rel="noopener noreferrer">
+                                        <a href="{{ route('unit', ['name'=>$unit->name, 'tower_name'=>$unit->section->tower->name, 'contact' => request()->query('contact') ]) }}" class="btn btn-red" target="_blank" rel="noopener noreferrer">
                                             {{__('Ver más')}}
                                         </a>
                                     </td>

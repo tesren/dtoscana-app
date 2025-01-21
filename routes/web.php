@@ -35,7 +35,7 @@ Route::localized(function () {
     Route::get(Lang::uri('/perfil'), ProfilePage::class)->name('profile');
     Route::get(Lang::uri('/politicas-privacidad'), PrivacyPage::class)->name('privacy');
     Route::get(Lang::uri('/unidades-guardadas'), SavedUnitsPage::class)->name('saved');
-    Route::get(Lang::uri('/condominio-dtoscana').'/{tower}/{name}', UnitPage::class)->name('unit');
+    Route::get(Lang::uri('/condominio-dtoscana').'/{tower_name}/{name}', UnitPage::class)->name('unit');
 
     Route::get(Lang::uri('/inicia-sesion'), LoginPage::class)->name('login');
     Route::get('/reset-password/{token}', ResetPassword::class)->name('password.reset');

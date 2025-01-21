@@ -143,7 +143,7 @@
                 
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-outline-red" data-bs-dismiss="modal">{{__('Cerrar')}}</button>
-                                        <a href="{{route('unit', ['name'=>$unit->name, 'tower'=>$unit->section->tower->name, 'contact' => request()->query('contact') ] )}}" class="btn btn-red">{{__('Más información')}}</a>
+                                        <a href="{{route('unit', ['name'=>$unit->name, 'tower_name'=>$unit->section->tower->name, 'contact' => request()->query('contact') ] )}}" wire:navigate class="btn btn-red">{{__('Más información')}}</a>
                                     </div>
                                 </div>
                 
