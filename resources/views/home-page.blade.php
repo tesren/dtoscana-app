@@ -188,18 +188,58 @@
                 </div>
 
                 <div class="col-12 position-relative">
-                    <img src="{{asset('img/master-plan-siena.webp')}}" alt="Master Plan Tower Siena D'Toscana" class="w-100 h-100 object-fit-cover rounded-4">
 
-                    <div class="position-absolute top-0 start-0 ms-5 mt-4 text-white">
-                        <div class="fs-5 lh-1">{{__('Torre')}}</div>
-                        <div class="fs-1 fw-bold lh-1 mb-4">SIENA</div>
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
 
-                        <div class="d-none d-xl-block">
-                            <div class="ff-libre fs-2">{{__('Tipos de unidades')}}</div>
-                            <div class="fw-light fs-5">{{__('Departamentos de 2 y 3 recámaras')}}</div>
-                            <div class="fw-light fs-5">{{__('Superficies de 110 m² hasta 150 m²')}}</div>
+                        <div class="carousel-indicators">
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                         </div>
-                    </div>
+
+                        <div class="carousel-inner">
+
+                            <div class="carousel-item active">
+                                <img src="{{asset('/img/torre-lucca-home.webp')}}" alt="Master Plan Tower Lucca D'Toscana" class="w-100 h-100 object-fit-cover rounded-4">
+
+                                <div class="position-absolute top-0 start-0 ms-5 mt-4 text-white">
+                                    <div class="fs-5 lh-1">{{__('Torre')}}</div>
+                                    <div class="fs-1 fw-bold lh-1 mb-4">LUCCA</div>
+            
+                                    <div class="d-none d-xl-block">
+                                        <div class="ff-libre fs-2">{{__('Tipos de unidades')}}</div>
+                                        <div class="fw-light fs-5">{{__('Departamentos de 2 y 3 recámaras')}}</div>
+                                        <div class="fw-light fs-5">{{__('Superficies desde 118 m² hasta 216 m²')}}</div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="carousel-item">
+                                <img src="{{asset('img/master-plan-siena.webp')}}" alt="Master Plan Tower Siena D'Toscana" class="w-100 h-100 object-fit-cover rounded-4">
+
+                                <div class="position-absolute top-0 start-0 ms-5 mt-4 text-white">
+                                    <div class="fs-5 lh-1">{{__('Torre')}}</div>
+                                    <div class="fs-1 fw-bold lh-1 mb-4">SIENA</div>
+
+                                    <div class="d-none d-xl-block">
+                                        <div class="ff-libre fs-2">{{__('Tipos de unidades')}}</div>
+                                        <div class="fw-light fs-5">{{__('Departamentos de 2 y 3 recámaras')}}</div>
+                                        <div class="fw-light fs-5">{{__('Superficies de 110 m² hasta 150 m²')}}</div>
+                                    </div>
+                                </div>                          
+                            </div>
+
+                        </div>
+
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                      </div>
 
                 </div>
 
