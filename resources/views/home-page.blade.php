@@ -252,6 +252,10 @@
 
     </div>
 
+    @include('components.banner-home')
+
+    <livewire:popup-promotion>
+
     @if (session('registered'))
         <div class="position-fixed bottom-0 start-0 ms-1 ms-lg-3 z-3">
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -260,13 +264,43 @@
         </div>
     @endif
 
-
     @script
         <script>
+
             Fancybox.bind("[data-fancybox]", {
-                // Your custom options
+                // Tus opciones personalizadas
             });
+
+                // Seleccionar el enlace que abre el modal
+                const promotionLink = document.querySelector('#banner_frontpage a[data-bs-toggle="modal"]');
+
+                console.log('cargó livewire');
+
+                if (promotionLink) {
+                    // Esperar 6 segundos antes de simular el clic
+                    console.log('entró al if');
+
+                    setTimeout(() => {
+                        console.log('pasaron los 6 segundos');
+                        promotionLink.click(); // Simular clic en el enlace
+
+                    }, 6000); // 6000 milisegundos = 6 segundos
+                }
+
+            document.addEventListener("livewire:update", () => {
+                // Si necesitas reinicializar el evento después de una actualización de Livewire
+                const promotionLink = document.querySelector('#banner_frontpage a[data-bs-toggle="modal"]');
+
+                if (promotionLink) {
+                    // Agregar el clic nuevamente si es necesario
+                    setTimeout(() => {
+                        promotionLink.click();
+                    }, 6000);
+                }
+            });
+
         </script>
     @endscript
+
 
 </div>
