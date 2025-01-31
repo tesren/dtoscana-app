@@ -32,7 +32,7 @@
 
                             <div class="text-center">
                                 <h2 class="mb-4 fs-3">{{__('Preventa')}}, {{__('departamentos de 2 y 3 recámaras')}}.</h2>
-                                <a href="{{ route('tower', ['name' => 'Lucca'] ) }}" wire:navigate class="btn btn-red fs-5 px-5">{{__('Ver Inventario')}}</a>
+                                <a href="{{ route('tower', ['name' => 'Lucca', 'contact'=>request()->query('contact') ] ) }}" wire:navigate class="btn btn-red fs-5 px-5">{{__('Ver Inventario')}}</a>
                             </div>
                         </div>
 
@@ -56,7 +56,7 @@
 
                             <div class="text-center">
                                 <h2 class="mb-4 fs-3">{{__('Entrega inmediata')}}, {{__('departamentos de 2 y 3 recámaras')}}.</h2>
-                                <a href="{{ route('tower', ['name' => 'Siena'] ) }}" wire:navigate class="btn btn-red fs-5 px-5">{{__('Ver Inventario')}}</a>
+                                <a href="{{ route('tower', ['name' => 'Siena', 'contact'=>request()->query('contact') ] ) }}" wire:navigate class="btn btn-red fs-5 px-5">{{__('Ver Inventario')}}</a>
                             </div>
                         </div>
 
@@ -165,7 +165,7 @@
                     <div class="bg-outline-red rounded-4 p-4 p-lg-5">
                         <h4 class="fs-3">{{__('El estilo de vida que mereces')}}</h4>
                         <p class="my-4 fs-5">{{__('Nuevo Vallarta es un destino espectacular que ofrece una combinación perfecta de lujo, naturaleza y actividades recreativas.')}}</p>
-                        <a href="{{route('lifestyle')}}" wire:navigate class="btn btn-red fs-5 px-4">{{__('Ver lo mejor de Nuevo Vallarta')}}</a>
+                        <a href="{{route('lifestyle', ['contact' => request()->query('contact')] )}}" wire:navigate class="btn btn-red fs-5 px-4">{{__('Ver lo mejor de Nuevo Vallarta')}}</a>
                     </div>
 
                 </div>

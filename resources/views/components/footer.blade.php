@@ -1,3 +1,7 @@
+@php
+    $contact = request()->query('contact');
+@endphp
+
 <footer class="row justify-content-evenly pt-5 pb-3 bg-red">
     
     <div class="col-8 col-lg-3 mb-5 mb-lg-0">
@@ -11,17 +15,19 @@
             <i class="fa-solid fa-location-dot"></i> Av México 61, 63735 Nuevo Vallarta, Nay.
         </address>
 
-        <a href="https://domusvallarta.com" class="text-decoration-none link-light d-block my-4 my-lg-0">
-            <div class="fs-6 mb-2">{{__('Comercializador Exclusivo')}}</div>
-            <img width="250px" src="{{asset('img/domus-logo-white.svg')}}" alt="Logo de Domus Vallarta Inmobiliaria">
-        </a>
+        @if ($contact != 'no')
+
+            <a href="https://domusvallarta.com" class="text-decoration-none link-light d-block my-4 my-lg-0">
+                <div class="fs-6 mb-2">{{__('Comercializador Exclusivo')}}</div>
+                <img width="250px" src="{{asset('img/domus-logo-white.svg')}}" alt="Logo de Domus Vallarta Inmobiliaria">
+            </a>
+
+        @endif
 
     </div>
 
     <div class="col-12 col-lg-3 mb-5 mb-lg-0 text-center text-lg-start">
-        @php
-            $contact = request()->query('contact');
-        @endphp
+
 
         @if ($contact != 'no')
         

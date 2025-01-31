@@ -5,9 +5,9 @@
     
         <div class="position-absolute row justify-content-start top-0 start-0 h-100 w-100">
     
-            <div class="col-6 text-white align-self-end mb-4 ps-5">
-                <div class="fw-bold fs-5">{{__('Promoción')}}</div>
-                <div>{{__('Por tiempo limitado.')}}</div>
+            <div class="col-6 text-white align-self-end mb-3 mb-xxl-4 ps-5">
+                <div class="fw-bold fs-4">{{__('Promoción')}}</div>
+                <div class="fs-5 fw-light">{{__('Por tiempo limitado.')}}</div>
             </div>
     
             <div class="col-3 align-self-center">

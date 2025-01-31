@@ -157,7 +157,7 @@
             </div>
 
             @auth
-                <a href="{{route('saved')}}" class="btn btn-red my-3" wire:navigate>
+                <a href="{{route('saved', ['contact'=>request()->query('contact')] )}}" class="btn btn-red my-3" wire:navigate>
                     <i class="fa-solid fa-heart"></i> {{__('Unidades Guardadas')}}
                 </a>
             @endauth
@@ -172,13 +172,13 @@
             <ul class="nav nav-pills justify-content-center mb-5 d-none d-lg-flex">
 
                 <li class="nav-item">
-                    <a class="nav-link rounded-start-5 rounded-end-0 fs-5 @if( strpos($route, 'tower') != false ) active @endif" wire:navigate href="{{route('tower', ['name'=>'Lucca'] )}}">
+                    <a class="nav-link rounded-start-5 rounded-end-0 fs-5 @if( strpos($route, 'tower') != false ) active @endif" wire:navigate href="{{route('tower', ['name'=>'Lucca', 'contact'=>request()->query('contact') ] )}}">
                         <i class="fa-solid fa-border-all"></i> {{__('Gráfico')}}
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link rounded-start-0 rounded-end-5 fs-5 @if( strpos($route, 'search') != false ) active @endif" wire:navigate href="{{route('search')}}">
+                    <a class="nav-link rounded-start-0 rounded-end-5 fs-5 @if( strpos($route, 'search') != false ) active @endif" wire:navigate href="{{ route('search', ['contact'=>request()->query('contact')] ) }}">
                         <i class="fa-solid fa-list"></i> {{__('Lista')}}
                     </a>
                 </li>

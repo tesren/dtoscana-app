@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <a href="{{route('tower', ['name' => 'Lucca'])}}" class="btn btn-red">
+                    <a href="{{route('tower', ['name' => 'Lucca', 'contact'=>request()->query('contact') ] )}}" class="btn btn-red">
                         {{__('Ver inventario')}}
                     </a>
                 </div>

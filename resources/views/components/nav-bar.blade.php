@@ -37,11 +37,11 @@
 
                             <ul class="dropdown-menu">
                               
-                                @foreach ($towers as $tower)
-                                    @if ($tower->inventory_type == 1)
-                                        <li><a class="dropdown-item" wire:navigate href="{{ route('tower', ['name' => $tower->name] ) }}">{{__('Torre')}} {{$tower->name}}</a></li>
+                                @foreach ($twrs as $twr)
+                                    @if ($twr->inventory_type == 1)
+                                        <li><a class="dropdown-item" wire:navigate href="{{ route('tower', ['name' => $twr->name, 'contact'=>$contact] ) }}">{{__('Torre')}} {{$twr->name}}</a></li>
                                     @else
-                                        <li><a class="dropdown-item" wire:navigate href="{{ route('search', ['tower' => $tower->id] ) }}">{{__('Torre')}} {{$tower->name}}</a></li>
+                                        <li><a class="dropdown-item" wire:navigate href="{{ route('search', ['tower' => $twr->id, 'contact'=>$contact] ) }}">{{__('Torre')}} {{$twr->name}}</a></li>
                                     @endif
                                 @endforeach
 
@@ -87,19 +87,19 @@
                                 </a>
 
                                 <ul class="dropdown-menu dropdown-menu-end">
-                                    <li><a class="dropdown-item" wire:navigate href="{{route('profile')}}">{{__('Mi Perfil')}}</a></li>
-                                    <li><a class="dropdown-item" href="{{route('saved')}}" wire:navigate>{{__('Unidades Guardadas')}}</a></li>
+                                    <li><a class="dropdown-item" wire:navigate href="{{route('profile', ['contact'=>$contact] )}}">{{__('Mi Perfil')}}</a></li>
+                                    <li><a class="dropdown-item" href="{{route('saved', ['contact'=>$contact]) }}" wire:navigate>{{__('Unidades Guardadas')}}</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><button class="dropdown-item" wire:click="logout" >{{__('Cerrar sesión')}}</button></li>
                                 </ul>
                             </li>
 
                             <li class="nav-item d-block d-lg-none">
-                                <a class="nav-link fs-5 @if( strpos($route, 'profile') != false) active @endif" href="{{ route('profile') }}" wire:navigate><i class="fa-regular fa-circle-user"></i> {{__('Mi Perfil')}}</a>
+                                <a class="nav-link fs-5 @if( strpos($route, 'profile') != false) active @endif" href="{{ route('profile', ['contact'=>$contact] ) }}" wire:navigate><i class="fa-regular fa-circle-user"></i> {{__('Mi Perfil')}}</a>
                             </li>
 
                             <li class="nav-item d-block d-lg-none">
-                                <a class="nav-link fs-5 @if( strpos($route, 'saved') != false) active @endif" href="{{ route('saved') }}" wire:navigate><i class="fa-solid fa-heart"></i> {{__('Unidades Guardadas')}}</a>
+                                <a class="nav-link fs-5 @if( strpos($route, 'saved') != false) active @endif" href="{{ route('saved', ['contact'=>$contact] ) }}" wire:navigate><i class="fa-solid fa-heart"></i> {{__('Unidades Guardadas')}}</a>
                             </li>
                         @endauth
 
@@ -108,20 +108,20 @@
                             @if ($lang == 'en')
                                 @if($route == 'en.unit')
         
-                                    <a class="d-block align-self-center me-0 me-lg-3 text-red nav-link text-decoration-none fs-5" title="{{__('Cambiar idioma')}}" wire:navigate href="{{$url = route('unit', ['name'=>$unit_name, 'tower_name'=>$unit_tower,'utm_campaign' => request()->query('utm_campaign'), 'utm_source' => request()->query('utm_source'), 'utm_medium' => request()->query('utm_medium')], true, 'es');}}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
+                                    <a class="d-block align-self-center me-0 me-lg-3 text-red nav-link text-decoration-none fs-5" title="{{__('Cambiar idioma')}}" wire:navigate href="{{$url = route('unit', ['name'=>$unit_name, 'tower_name'=>$unit_tower, 'contact'=>$contact ], true, 'es');}}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
                                         @include('components.lang-btn-icon') <span class="d-inline d-lg-none">{{__('Cambiar idioma')}}</span>
                                     </a>
                                 @elseif($route == 'en.password.reset')
 
                                 @elseif($route == 'en.tower')
 
-                                    <a class="d-block align-self-center me-0 me-lg-3 text-red nav-link text-decoration-none fs-5" title="{{__('Cambiar idioma')}}" wire:navigate href="{{$url = route('tower', array_merge(['name'=>$tower], request()->query() ), true, 'es');}}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
+                                    <a class="d-block align-self-center me-0 me-lg-3 text-red nav-link text-decoration-none fs-5" title="{{__('Cambiar idioma')}}" wire:navigate href="{{$url = route('tower', ['name'=>$tower, 'contact'=>$contact], true, 'es') }}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
                                         @include('components.lang-btn-icon') <span class="d-inline d-lg-none">{{__('Cambiar idioma')}}</span>
                                     </a>
 
                                 @else
                                     
-                                    <a href="{{$url = route($route, request()->query(), true, 'es')}}" wire:navigate class="d-block align-self-center me-0 me-lg-3 text-red nav-link text-decoration-none fs-5" title="{{__('Cambiar idioma')}}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
+                                    <a href="{{$url = route($route, ['contact'=>$contact], true, 'es')}}" wire:navigate class="d-block align-self-center me-0 me-lg-3 text-red nav-link text-decoration-none fs-5" title="{{__('Cambiar idioma')}}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
                                         @include('components.lang-btn-icon') <span class="d-inline d-lg-none">{{__('Cambiar idioma')}}</span>
                                     </a>
         
@@ -130,7 +130,7 @@
                             @else
                                 @if($route == 'es.unit')
         
-                                    <a class="d-block align-self-center me-0 me-lg-3 text-red nav-link text-decoration-none fs-5" title="{{__('Cambiar idioma')}}" wire:navigate href="{{$url = route('unit', ['name'=>$unit_name, 'tower_name'=>$unit_tower, 'utm_campaign' => request()->query('utm_campaign'), 'utm_source' => request()->query('utm_source'), 'utm_medium' => request()->query('utm_medium')], true, 'en');}}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
+                                    <a class="d-block align-self-center me-0 me-lg-3 text-red nav-link text-decoration-none fs-5" title="{{__('Cambiar idioma')}}" wire:navigate href="{{$url = route('unit', ['name'=>$unit_name, 'tower_name'=>$unit_tower, 'contact'=>$contact ], true, 'en');}}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
                                         @include('components.lang-btn-icon') <span class="d-inline d-lg-none">{{__('Cambiar idioma')}}</span>
                                     </a>
 
@@ -138,12 +138,12 @@
 
                                 @elseif($route == 'es.tower')
 
-                                    <a class="d-block align-self-center me-0 me-lg-3 text-red nav-link text-decoration-none fs-5" title="{{__('Cambiar idioma')}}" wire:navigate href="{{$url = route('tower', array_merge(['name'=>$tower], request()->query() ), true, 'en');}}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
+                                    <a class="d-block align-self-center me-0 me-lg-3 text-red nav-link text-decoration-none fs-5" title="{{__('Cambiar idioma')}}" wire:navigate href="{{$url = route('tower', ['name'=>$tower, 'contact'=>$contact], true, 'en') }}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
                                         @include('components.lang-btn-icon') <span class="d-inline d-lg-none">{{__('Cambiar idioma')}}</span>
                                     </a>
         
                                 @else
-                                    <a href="{{$url = route($route, request()->query(), true, 'en')}}" wire:navigate class="d-block align-self-center me-0 me-lg-3 text-red nav-link text-decoration-none fs-5" title="{{__('Cambiar idioma')}}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
+                                    <a href="{{$url = route($route, ['contact'=>$contact], true, 'en')}}" wire:navigate class="d-block align-self-center me-0 me-lg-3 text-red nav-link text-decoration-none fs-5" title="{{__('Cambiar idioma')}}" data-bs-toggle="tooltip" data-bs-title="{{__('Cambiar idioma')}}">
                                         @include('components.lang-btn-icon') <span class="d-inline d-lg-none">{{__('Cambiar idioma')}}</span>
                                     </a>
                         

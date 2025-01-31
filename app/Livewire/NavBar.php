@@ -16,6 +16,7 @@ class NavBar extends Component
 {
     public $unit_name = '4101';
     public $unit_tower = 'Siena';
+    public $tower = 'Lucca';
     public $route = '';
 
     #[Url]
@@ -27,6 +28,13 @@ class NavBar extends Component
         $unit = Unit::findOrFail($id);
         $this->unit_name = $unit->name;
         $this->unit_tower = $unit->section->tower->name;
+    }
+
+    #[On('id-tower')] 
+    public function updateTower($id)
+    {
+        $tower_model = Tower::findOrFail($id);
+        $this->tower = $tower_model->name;
     }
 
     public function mount()
@@ -47,8 +55,8 @@ class NavBar extends Component
     public function render()
     {
         $const_updates = ConstructionUpdate::latest('date')->get();
-        $towers = Tower::all();
+        $twrs = Tower::all();
 
-        return view('components.nav-bar', compact('const_updates', 'towers'));
+        return view('components.nav-bar', compact('const_updates', 'twrs'));
     }
 }
