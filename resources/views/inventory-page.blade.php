@@ -124,11 +124,11 @@
                                         <div class="d-flex justify-content-center fs-5 mt-4">
                 
                                             <div class="me-3">
-                                                <i class="fa-solid fa-bed"></i> {{$unit->unitType->bedrooms}}@if($unit->unitType->flexrooms == 1).5 @endif
+                                                <i class="fa-solid fa-bed"></i> {{$unit->bedrooms}}@if($unit->unitType->flexrooms == 1).5 @endif
                                             </div>
                             
                                             <div class="me-3">
-                                                <i class="fa-solid fa-bath"></i> {{$unit->unitType->bathrooms}}
+                                                <i class="fa-solid fa-bath"></i> {{$unit->bathrooms}}
                                             </div>
                                             
                                             <div class="me-3">

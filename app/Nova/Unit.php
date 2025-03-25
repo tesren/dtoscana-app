@@ -248,6 +248,8 @@ class Unit extends Resource
                 }
             ),
 
+            Number::make(__('Cajones de estacionamiento'), 'parking_spots')->hideFromIndex()->placeholder('Cajones de estacionamiento')->min(0)->max(99999)->nullable()->step(0.01),
+
             Number::make(__('Const. Total'), 'const_total')->sortable()->placeholder('Metros cuadrados totales')->min(0)->max(99999)->rules('required')->step(0.01)
             ->displayUsing(
                 function($value){

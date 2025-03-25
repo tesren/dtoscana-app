@@ -4,8 +4,8 @@
         <title>{{__('Condominio')}} {{$unit->name}} - D'Toscana Nuevo Vallarta</title>
         <meta name="description" content="{{__('Descubre los detalles de este condominio en venta en D’Toscana, Nuevo Vallarta: :bedrooms recámaras, :bathrooms baños y :area m² de lujo en la Riviera Nayarit. Con acabados premium, vistas panorámicas y acceso a amenidades exclusivas como alberca infinity, gimnasio y roof garden. ¡Explora tu nuevo hogar ideal!', 
                 [
-                    'bedrooms' => $unit->unitType->bedrooms,
-                    'bathrooms' => $unit->unitType->bathrooms,
+                    'bedrooms' => $unit->bedrooms,
+                    'bathrooms' => $unit->bathrooms,
                     'area' => $unit->const_total
                 ])}}">
     @endsection
@@ -123,8 +123,8 @@
             <p class="fw-light fs-5 mb-5">
                 {{__('Descubre los detalles de este condominio en venta en D’Toscana, Nuevo Vallarta: :bedrooms recámaras, :bathrooms baños y :area m² de lujo en la Riviera Nayarit. Con acabados premium, vistas panorámicas y acceso a amenidades exclusivas como alberca infinity, gimnasio y roof garden. ¡Explora tu nuevo hogar ideal!', 
                 [
-                    'bedrooms' => $unit->unitType->bedrooms,
-                    'bathrooms' => $unit->unitType->bathrooms,
+                    'bedrooms' => $unit->bedrooms,
+                    'bathrooms' => $unit->bathrooms,
                     'area' => $unit->const_total
                 ])}}
             </p>
@@ -134,11 +134,11 @@
             <div class="row fs-5 fw-light mb-5">
 
                 <div class="col-12 col-lg-3 mb-1">
-                    <i class="fa-solid fa-bed"></i> {{$unit->unitType->bedrooms}} {{__('Recámaras')}}
+                    <i class="fa-solid fa-bed"></i> {{$unit->bedrooms}} {{__('Recámaras')}}
                 </div>
 
                 <div class="col-12 col-lg-3 mb-1 col-xxl-2">
-                    <i class="fa-solid fa-bath"></i> {{$unit->unitType->bathrooms}} {{__('Baños')}}
+                    <i class="fa-solid fa-bath"></i> {{$unit->bathrooms}} {{__('Baños')}}
                 </div>
 
                 <div class="col-12 col-lg-3 mb-1 col-xxl-2">
@@ -161,31 +161,43 @@
 
             <div class="row mb-5 fw-light fs-5">
                 <div class="col-12 col-lg-3 mb-3">
-                    <i class="fa-solid fa-ruler-combined"></i> Interior: {{$unit->interior_const}} {{__('m²')}}
+                    <i class="fa-solid fa-ruler-combined"></i> Interior: <strong>{{$unit->interior_const}} {{__('m²')}}</strong>
                 </div>
 
                 @if( isset($unit->exterior_const) and $unit->exterior_const != 0)
                     <div class="col-12 col-lg-3 mb-3">
-                        <i class="fa-solid fa-maximize"></i> Exterior: {{$unit->exterior_const}} {{__('m²')}}
+                        <i class="fa-solid fa-maximize"></i> Exterior: <strong>{{$unit->exterior_const}} {{__('m²')}}</strong>
                     </div>
                 @endif
 
                 @if( isset($unit->garden) and $unit->garden != 0)
-                    <div class="col-12 col-lg-3 mb-1">
-                        <i class="fa-solid fa-seedling"></i> {{__('Jardín')}}: {{$unit->garden}} {{__('m²')}}
+                    <div class="col-12 col-lg-3 mb-3">
+                        <i class="fa-solid fa-seedling"></i> {{__('Jardín')}}: <strong>{{$unit->garden}} {{__('m²')}}</strong>
                     </div>
                 @endif
+
+                <div class="col-12 mb-3">
+                    <i class="fa-solid fa-house"></i> {{__('Total del Condominio')}}: <strong>{{ $unit->interior_const + $unit->exterior_const + $unit->garden }} {{__('m²')}}</strong>
+                </div>
 
                 @if( isset($unit->parking_area) and $unit->parking_area != 0 )
-                    <div class="col-12 col-lg-4 mb-1">
-                        <i class="fa-solid fa-car"></i> {{__('Estacionamiento')}}: {{$unit->parking_area}} {{__('m²')}}
+                    <div class="col-12 mb-1">
+                        <i class="fa-solid fa-car"></i> {{__('Estacionamiento incluido')}}: 
+
+                        <strong>
+                            {{$unit->parking_area}} {{__('m²')}} 
+                            @if ($unit->parking_spots)
+                                ({{$unit->parking_spots}} {{__('Cajones')}})
+                            @endif
+                        </strong>
+
                     </div>
                 @endif
 
-
-                <div class="col-12 col-lg-3">
-                    <i class="fa-solid fa-house"></i> Total: {{$unit->const_total}} {{__('m²')}}
+                <div class="col-12 my-3">
+                    <i class="fa-solid fa-house"></i> {{__('Total')}}: <strong>{{ $unit->const_total }} {{__('m²')}}</strong>
                 </div>
+
             </div>
 
         </div>
