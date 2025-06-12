@@ -22,6 +22,9 @@ class ContactForm extends Component
     #[Validate('required')] 
     public $contact_email = '';
 
+    #[Validate('required')] 
+    public $contact_method = '';
+
     public $contact_phone = '';
     public $message = '';
     public $url = '';
@@ -52,6 +55,7 @@ class ContactForm extends Component
         $msg->name = $this->full_name;
         $msg->email = $this->contact_email;
         $msg->phone = $this->contact_phone;
+        $msg->method = $this->contact_method;
         $msg->content = $this->message;
         $msg->url = $this->url;
 
@@ -59,7 +63,7 @@ class ContactForm extends Component
 
 
         //para el webhook
-        $type = "Contacto desde el sitio web de Quadrant Luxury Ocean Living";
+        $type = "Contacto desde el sitio web de D'Toscana";
 
 
         if( app()->getLocale() == 'es' ){
@@ -70,7 +74,7 @@ class ContactForm extends Component
         }
 
         //Envíamos webhook
-        $webhookUrl = 'https://hooks.zapier.com/hooks/catch/4710110/3fvqx5c/';
+        $webhookUrl = 'https://cloud.punto401.com/webhook/c7277fea-e8df-41b6-bbae-a3c66cbf77d5';
 
         // Datos que deseas enviar en el cuerpo de la solicitud
         $data = [
@@ -79,15 +83,19 @@ class ContactForm extends Component
             'phone' => $msg->phone,
             'url' => $msg->url,
             'content' => $msg->content,
+            'method' => $msg->method,
             'interest' => 'Condominios',
-            'development' => 'Quadrant',
+            'development' => "D'Toscana",
             'lang' => $lang,
             'type'  => $type,
             'created_at' => $msg->created_at,
         ];
 
+        $n8nUser = env('N8N_AUTH_USER');
+        $n8nPass = env('N8N_AUTH_PASS');
+        
         // Enviar la solicitud POST al webhook
-        $response = Http::post($webhookUrl, $data);
+        $response = Http::withBasicAuth($n8nUser, $n8nPass)->post($webhookUrl, $data);
 
 
         $email = Mail::to('info@domusvallarta.com')->bcc('ventas@punto401.com');

@@ -5,7 +5,7 @@
 <footer class="row justify-content-evenly pt-5 pb-3 bg-red">
     
     <div class="col-8 col-lg-3 mb-5 mb-lg-0">
-        <img src="{{asset('/img/dtoscana-logo-white.svg')}}" alt="Logo de Quadrant Luxury Living" class="w-100">
+        <img src="{{asset('/img/dtoscana-logo-white.svg')}}" alt="Logo de D'Toscana" class="w-100">
     </div>
 
     <div class="col-12 col-lg-3 mb-5 mb-lg-0 text-center text-lg-start px-4 px-lg-3">
