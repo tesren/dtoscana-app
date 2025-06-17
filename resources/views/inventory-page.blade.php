@@ -196,7 +196,7 @@
                 @foreach ($sections as $section)
                     <li class="nav-item @if($i==0) me-1 me-lg-3 @endif mb-2 mb-lg-0" role="presentation">
                         <button class="nav-link @if($i==0) active @endif" id="pills-{{$section->id}}-tab" data-bs-toggle="pill" data-bs-target="#pills-{{$section->id}}" type="button" role="tab" aria-controls="pills-{{$section->id}}" aria-selected="true">
-                            {{$section->view}}
+                            {{__($section->view)}}
                         </button>
                     </li>
                     @php $i++; @endphp 

@@ -57,7 +57,7 @@
                             <label for="floor">{{__('Piso')}}</label>
                         </div>
 
-                        <div class="form-floating mb-3 mb-lg-0">
+                        {{-- <div class="form-floating mb-3 mb-lg-0">
                             <select class="form-select" id="tower" wire:model="tower" aria-label="{{__('Torre')}}">
                                 <option value="0">{{__('Cualquier Torre')}}</option>
 
@@ -67,7 +67,7 @@
                                 
                             </select>
                             <label for="tower">{{__('Torre')}}</label>
-                        </div>
+                        </div> --}}
         
                         <div class="form-floating mb-3 mb-lg-0">
                             <select class="form-select" id="bedrooms" wire:model="bedrooms" aria-label="{{__('Recámaras')}}">

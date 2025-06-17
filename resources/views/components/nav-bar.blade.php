@@ -1,12 +1,14 @@
 <div class="sticky-top">
     {{-- Success is as dangerous as failure. --}}
 
-    <nav class="navbar navbar-expand-xxl bg-white shadow-sm">
+    <nav class="navbar navbar-expand-xl bg-white shadow-sm">
         <div class="container-fluid">
 
             <a class="navbar-brand ms-0 ms-lg-4" href="{{route('home', ['contact'=>$contact] )}}" wire:navigate>
                 <img width="100px" src="{{asset('img/dtoscana-logo-red.svg')}}" alt="Logo D'Toscana">
             </a>
+
+            <span class="badge text-bg-danger ms-3">{{__('Torre Siena 100% vendida')}}</span>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -37,17 +39,21 @@
 
                             <ul class="dropdown-menu">
                               
-                                @foreach ($twrs as $twr)
+                                {{-- @foreach ($twrs as $twr)
                                     @if ($twr->inventory_type == 1)
                                         <li><a class="dropdown-item" wire:navigate href="{{ route('tower', ['name' => $twr->name, 'contact'=>$contact] ) }}">{{__('Torre')}} {{$twr->name}}</a></li>
                                     @else
                                         <li><a class="dropdown-item" wire:navigate href="{{ route('search', ['tower' => $twr->id, 'contact'=>$contact] ) }}">{{__('Torre')}} {{$twr->name}}</a></li>
                                     @endif
-                                @endforeach
+                                @endforeach --}}
 
-                              <li>
-                                <a class="dropdown-item @if( strpos($route, 'search') != false) active @endif" href="{{route('search', ['contact'=>$contact] )}}" wire:navigate>{{__('Ver todo')}}</a>
-                              </li>
+                                <li><a class="dropdown-item" wire:navigate href="{{ route('tower', ['name' =>'Lucca', 'contact'=>$contact] ) }}">{{__('Gráfico')}}</a></li>
+
+                                <li class="dropdown-divider"></li>
+
+                                <li>
+                                    <a class="dropdown-item @if( strpos($route, 'search') != false) active @endif" href="{{route('search', ['contact'=>$contact] )}}" wire:navigate>{{__('Lista')}}</a>
+                                </li>
                             </ul>
 
                         </li>

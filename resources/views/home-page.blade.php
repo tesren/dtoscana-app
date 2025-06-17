@@ -40,7 +40,7 @@
 
                   </div>
     
-                  <div class="carousel-item">
+                  {{-- <div class="carousel-item">
                     <img src="{{asset('img/tower-siena.webp')}}" class="d-block w-100 object-fit-cover shadow" alt="{{__('Torre')}} Siena D'Toscana" loading="lazy" style="max-height: 82vh; min-height:50vh;">
 
                     <div class="row justify-content-center position-absolute start-0 top-0 mb-5 mb-lg-4 z-3 h-100">
@@ -62,18 +62,18 @@
 
                     </div>
 
-                  </div>
+                  </div> --}}
     
                 </div>
     
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselTowers" data-bs-slide="prev">
+                {{-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselTowers" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Previous</span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#carouselTowers" data-bs-slide="next">
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Next</span>
-                </button>
+                </button> --}}
     
             </div>
 
@@ -187,14 +187,13 @@
                     <iframe class="rounded-4" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4118.774091590878!2d-105.28075583125899!3d20.706839393283897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842147332cd8faeb%3A0x46046aa906d6e728!2sD&#39;%20Toscana%20Residencial!5e0!3m2!1ses-419!2smx!4v1728920680333!5m2!1ses-419!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
 
-                <div class="col-12 position-relative">
-
+                <div class="col-12 col-lg-6 px-0 px-lg-3 mb-5 mb-lg-0 position-relative">
                     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
 
-                        <div class="carousel-indicators">
+                        {{-- <div class="carousel-indicators">
                           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        </div>
+                        </div> --}}
 
                         <div class="carousel-inner">
 
@@ -203,10 +202,10 @@
 
                                 <div class="position-absolute top-0 start-0 ms-5 mt-4 text-white">
                                     <div class="fs-5 lh-1">{{__('Torre')}}</div>
-                                    <div class="fs-1 fw-bold lh-1 mb-4">LUCCA</div>
+                                    <div class="fs-1 fw-bold lh-1 mb-1 mb-xxl-4">LUCCA</div>
             
-                                    <div class="d-none d-xl-block">
-                                        <div class="ff-libre fs-2">{{__('Tipos de unidades')}}</div>
+                                    <div class="">
+                                        <div class="ff-libre fs-2 d-none d-xxl-block">{{__('Tipos de unidades')}}</div>
                                         <div class="fw-light fs-5">{{__('Departamentos de 2 y 3 recámaras')}}</div>
                                         <div class="fw-light fs-5">{{__('Superficies desde 118 m² hasta 216 m²')}}</div>
                                     </div>
@@ -214,7 +213,7 @@
 
                             </div>
 
-                            <div class="carousel-item">
+                            {{-- <div class="carousel-item">
                                 <img src="{{asset('img/master-plan-siena.webp')}}" alt="Master Plan Tower Siena D'Toscana" class="w-100 h-100 object-fit-cover rounded-4">
 
                                 <div class="position-absolute top-0 start-0 ms-5 mt-4 text-white">
@@ -227,20 +226,42 @@
                                         <div class="fw-light fs-5">{{__('Superficies de 110 m² hasta 150 m²')}}</div>
                                     </div>
                                 </div>                          
-                            </div>
+                            </div> --}}
 
                         </div>
 
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        {{-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                           <span class="visually-hidden">Previous</span>
                         </button>
                         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
                           <span class="carousel-control-next-icon" aria-hidden="true"></span>
                           <span class="visually-hidden">Next</span>
-                        </button>
+                        </button> --}}
                       </div>
 
+                </div>
+
+                <div class="col-12 col-lg-6 px-0 position-relative rounded-4 overflow-hidden">
+                    <img src="{{asset('img/tower-siena.webp')}}" class="d-block w-100 h-100 object-fit-cover shadow" alt="{{__('Torre')}} Siena D'Toscana" loading="lazy" style="min-height: 45vh;">
+
+                    <div class="position-absolute w-100 bottom-0 start-0 bg-red p-3 p-xxl-4">
+
+                        <div class="row">
+
+                            <div class="col-12 col-lg-4 col-xxl-5 border-start border-white lh-1 fw-semibold text-uppercase mb-3 mb-lg-0 align-self-center">
+                                <div class="fs-5 mb-1">{{__('Torre')}}</div>
+                                <div class="fs-1">Siena</div>
+                            </div>
+
+                            <div class="col-12 col-lg-8 col-xxl-7 px-0">
+                                <div class="ff-libre text-uppercase lh-1 fs-1 mb-1">{{__('100% vendida')}}</div>
+                                <div class="fs-5 fw-light">{{__('Gracias por confiar en el proyecto')}}</div>
+                            </div>
+
+                        </div>
+
+                    </div>
                 </div>
 
             </div>
@@ -274,30 +295,32 @@
                 // Seleccionar el enlace que abre el modal
                 const promotionLink = document.querySelector('#banner_frontpage a[data-bs-toggle="modal"]');
 
-                console.log('cargó livewire');
+                //console.log('cargó livewire');
 
                 if (promotionLink) {
                     // Esperar 6 segundos antes de simular el clic
-                    console.log('entró al if');
+                    //console.log('entró al if');
+                    if (window.innerWidth < 768) {
+                        setTimeout(() => {
+                            //console.log('pasaron los 6 segundos');
+                            promotionLink.click(); // Simular clic en el enlace
 
-                    setTimeout(() => {
-                        console.log('pasaron los 6 segundos');
-                        promotionLink.click(); // Simular clic en el enlace
+                        }, 6000); // 6000 milisegundos = 6 segundos
+                    }
 
-                    }, 6000); // 6000 milisegundos = 6 segundos
                 }
 
-            document.addEventListener("livewire:update", () => {
-                // Si necesitas reinicializar el evento después de una actualización de Livewire
-                const promotionLink = document.querySelector('#banner_frontpage a[data-bs-toggle="modal"]');
+                document.addEventListener("livewire:update", () => {
+                    if (window.innerWidth < 768) {
+                        const promotionLink = document.querySelector('#banner_frontpage a[data-bs-toggle="modal"]');
 
-                if (promotionLink) {
-                    // Agregar el clic nuevamente si es necesario
-                    setTimeout(() => {
-                        promotionLink.click();
-                    }, 6000);
-                }
-            });
+                        if (promotionLink) {
+                            setTimeout(() => {
+                                promotionLink.click();
+                            }, 6000);
+                        }
+                    }
+                });
 
         </script>
     @endscript
