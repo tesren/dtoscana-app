@@ -31,7 +31,7 @@
         
     </head>
 
-    <body>
+    <body class="position-relative">
 
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TX7N2TWJ"
@@ -49,12 +49,11 @@
         </main>
 
         <livewire:register-form>
-  
-        <livewire:whatsapp-btn />
-
 
         {{-- Footer --}}
         @include('components.footer')
+
+        <livewire:whatsapp-btn />
 
 
         @vite(['resources/js/app.js'])

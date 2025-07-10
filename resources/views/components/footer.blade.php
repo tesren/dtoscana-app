@@ -2,7 +2,7 @@
     $contact = request()->query('contact');
 @endphp
 
-<footer class="row justify-content-evenly pt-5 pb-3 bg-red">
+<footer class="row justify-content-evenly pt-5 pb-3 bg-red mb-5 mb-lg-0">
     
     <div class="col-8 col-lg-3 mb-5 mb-lg-0">
         <img src="{{asset('/img/dtoscana-logo-white.svg')}}" alt="Logo de D'Toscana" class="w-100">
