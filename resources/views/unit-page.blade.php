@@ -367,44 +367,44 @@
                                 
         
                                 @isset($plan->down_payment)
-                                    <div class="d-flex justify-content-between mb-3 px-2 px-lg-4 fw-light mt-3">
-                                        <div class="fs-4">
+                                    <div class="row justify-content-between mb-3 px-2 px-lg-4 fw-light mt-3">
+                                        <div class="fs-4 col-6 px-0">
                                             {{__('Enganche')}} ({{$plan->down_payment}}%)
-                                            <div class="fs-6 fw-light d-none d-lg-block">{{__('A la firma del contrato de promesa de compra-venta')}}.</div>
                                         </div>
-                                        <div class="fs-4">${{ number_format( $final_price * ($plan->down_payment/100) ) }} {{ $unit->currency }}</div>
+                                        <div class="fs-4 col-6 px-0 text-end">${{ number_format( $final_price * ($plan->down_payment/100) ) }} {{ $unit->currency }}</div>
+                                        <div class="fs-6 fw-light col-12 px-0">{{__('A la firma del contrato de promesa de compra-venta')}}.</div>
                                     </div>
                                 @endisset
         
                                 @isset($plan->second_payment)
-                                    <div class="d-flex justify-content-between mb-3 px-2 px-lg-4 fw-light">
-                                        <div class="fs-4">
+                                    <div class="row justify-content-between mb-3 px-2 px-lg-4 fw-light">
+                                        <div class="fs-4 col-6 px-0">
                                             {{__('Segundo pago')}} ({{$plan->second_payment}}%)
-                                            <div class="fs-6 fw-light d-none d-lg-block">{{__('Sesenta días después del enganche')}}.</div>
                                         </div>
-                                        <div class="fs-4">${{ number_format( $final_price * ($plan->second_payment/100) ) }} {{ $unit->currency }}</div>
+                                        <div class="fs-4 col-6 px-0 text-end">${{ number_format( $final_price * ($plan->second_payment/100) ) }} {{ $unit->currency }}</div>
+                                        <div class="fs-6 fw-light col-12 px-0">{{__('Sesenta días después del enganche')}}.</div>
                                     </div>
                                 @endisset
                                 
                                 @isset($plan->months_percent)
-                                    <div class="d-flex justify-content-between mb-3 px-2 px-lg-4 fw-light">
-                                        <div class="fs-4">
+                                    <div class="row justify-content-between mb-3 px-2 px-lg-4 fw-light">
+                                        <div class="fs-4 col-6 px-0">
                                             {{$plan->months_amount}} {{__('Mensualidades')}} ({{$plan->months_percent}}%)
-                                            @if ($plan->during_const)
-                                                <div class="fs-6 fw-light d-none d-lg-block">{{$plan->months_amount}} {{__('Pagos mensuales durante la construcción')}}.</div>
-                                            @endif
                                         </div>
-                                        <div class="fs-4">${{ number_format( $final_price * ($plan->months_percent/100) ) }} {{ $unit->currency }}</div>
+                                        <div class="fs-4 col-6 text-end px-0">${{ number_format( $final_price * ($plan->months_percent/100) ) }} {{ $unit->currency }}</div>
+                                        @if ($plan->during_const)
+                                            <div class="fs-6 fw-light col-12 px-0">{{$plan->months_amount}} {{__('Pagos mensuales durante la construcción')}}.</div>
+                                        @endif
                                     </div>
                                 @endisset
         
                                 @isset($plan->closing_payment)
-                                    <div class="d-flex justify-content-between px-2 px-lg-4 fw-light">
-                                        <div class="fs-4">
+                                    <div class="row justify-content-between px-2 px-lg-4 fw-light">
+                                        <div class="fs-4 col-6 px-0">
                                             {{__('Pago Final')}} ({{$plan->closing_payment}}%)
-                                            <div class="fs-6 fw-light d-none d-lg-block">{{__('A la entrega física de la propiedad')}}.</div>
                                         </div>
-                                        <div class="fs-4">${{ number_format( $final_price * ($plan->closing_payment/100) ) }} {{ $unit->currency }}</div>
+                                        <div class="fs-4 col-6 px-0 text-end">${{ number_format( $final_price * ($plan->closing_payment/100) ) }} {{ $unit->currency }}</div>
+                                        <div class="fs-6 fw-light col-12 px-0">{{__('A la entrega física de la propiedad')}}.</div>
                                     </div>
                                 @endisset
         

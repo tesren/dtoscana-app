@@ -32,9 +32,9 @@ Route::localized(function () {
     Route::get(Lang::uri('/condominios-en-venta/torre-').'{name}', InventoryPage::class)->name('tower');
     Route::get(Lang::uri('/busqueda-de-condominios'), SearchPage::class)->name('search');
     Route::get(Lang::uri('/contacto'), ContactPage::class)->name('contact');
-    Route::get(Lang::uri('/perfil'), ProfilePage::class)->name('profile');
+    Route::get(Lang::uri('/perfil'), ProfilePage::class)->middleware('auth')->name('profile');
     Route::get(Lang::uri('/politicas-privacidad'), PrivacyPage::class)->name('privacy');
-    Route::get(Lang::uri('/unidades-guardadas'), SavedUnitsPage::class)->name('saved');
+    Route::get(Lang::uri('/unidades-guardadas'), SavedUnitsPage::class)->middleware('auth')->name('saved');
     Route::get(Lang::uri('/condominio-dtoscana').'/{tower_name}/{name}', UnitPage::class)->name('unit');
 
     Route::get(Lang::uri('/inicia-sesion'), LoginPage::class)->name('login');
