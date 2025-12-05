@@ -5,7 +5,7 @@
     @endphp
 
     @if ($contact != 'no')
-        <a href="https://wa.me/523322005523?text={{ urlencode(__("Hola, vengo del sitio web de D'Toscana")) }}" id="whatsapp-btn" class="position-fixed d-none d-lg-block bottom-0 end-0 z-3 m-3" data-bs-toggle="tooltip" data-bs-title="{{ __('¡Envíanos un mensaje!') }}" target="_blank" rel="noopener noreferrer">
+        <a href="https://wa.me/52{{env('CONTACT_NUMBER')}}?text={{ urlencode(__("Hola, vengo del sitio web de D'Toscana")) }}" id="whatsapp-btn" class="position-fixed d-none d-lg-block bottom-0 end-0 z-3 m-3" data-bs-toggle="tooltip" data-bs-title="{{ __('¡Envíanos un mensaje!') }}" target="_blank" rel="noopener noreferrer">
             <img width="70px" src="{{asset('img/whatsapp-btn.webp')}}" alt="Contactar por WhatsApp">
         </a>
 
@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="col-5 align-self-center">
-                    <a class="btn btn-red w-100 fs-6" href="https://wa.me/5213322005523?text={{__("Hola, vengo del sitio web de D'Toscana")}}" target="_blank" rel="noopener noreferrer">
+                    <a class="btn btn-red w-100 fs-6" href="https://wa.me/52{{env('CONTACT_NUMBER')}}?text={{__("Hola, vengo del sitio web de D'Toscana")}}" target="_blank" rel="noopener noreferrer">
                         <i class="fa-brands fa-whatsapp"></i> WhatsApp
                     </a>
                 </div>

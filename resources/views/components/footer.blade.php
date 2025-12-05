@@ -37,8 +37,8 @@
                 <i class="fa-solid fa-envelope"></i> info@domusvallarta.com
             </a>
 
-            <a href="tel:+523322005523" class="link-light fs-5 text-decoration-none d-block mb-2 fw-light">
-                <i class="fa-solid fa-phone"></i> +52 332 200 5523
+            <a href="tel:+52{{env('CONTACT_NUMBER')}}" class="link-light fs-5 text-decoration-none d-block mb-2 fw-light">
+                <i class="fa-solid fa-phone"></i> +52 {{env('DISPLAY_NUMBER')}}
             </a>
 
             <a href="https://www.facebook.com/DomusVallartaInmobiliaria" target="_blank" rel="noopener noreferrer" aria-label="Facebook page" class="link-light text-decoration-none fs-4 me-3">
